@@ -2,353 +2,221 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-type Rates = {
-  peoplePerSecond: number;
-  humanoidPerSecond: number;
-  digitalPerSecond: number;
-};
-
-type Baseline = {
-  startMs: number;
-  people: number;
-  humanoid: number;
-  digital: number;
-};
-
-function clamp(n: number, min: number, max: number) {
-  return Math.max(min, Math.min(max, n));
-}
-
-function formatInt(n: number) {
-  return Math.floor(n).toLocaleString();
-}
-
-function format1(n: number) {
-  return (Math.round(n * 10) / 10).toFixed(1);
-}
-
-export default function Page() {
-  // --- Demo baselines (edit these later if you want) ---
-  const baseline: Baseline = useMemo(
-    () => ({
-      startMs: Date.now(),
-      people: 8_137_000_000,
-      humanoid: 326_000_000,
-      digital: 5_600_000_000,
-    }),
-    []
-  );
-
-  const rates: Rates = useMemo(
-    () => ({
-      // totally demo numbers — tune later
-      peoplePerSecond: 2.2,
-      humanoidPerSecond: 0.35,
-      digitalPerSecond: 5.5,
-    }),
-    []
-  );
-
-  // Prevent hydration mismatch: render stable values on server, start ticking on client.
-  const [nowMs, setNowMs] = useState<number>(0);
+export default function Home() {
+  const [humans, setHumans] = useState(8123021033);
+  const [humanoidBots, setHumanoidBots] = useState(326000083);
+  const [digitalBots, setDigitalBots] = useState(4309999841);
 
   useEffect(() => {
-    let raf = 0;
+    const interval = setInterval(() => {
+      setHumans((prev) => drift(prev, 0, 4, 8123020000, 8123099999));
+      setHumanoidBots((prev) => drift(prev, 1, 8, 325980000, 326120000));
+      setDigitalBots((prev) => drift(prev, 1, 10, 4309950000, 4310100000));
+    }, 1600);
 
-    const tick = () => {
-      setNowMs(Date.now());
-      raf = requestAnimationFrame(tick);
-    };
-
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    return () => clearInterval(interval);
   }, []);
 
-  const elapsedSeconds =
-    nowMs === 0 ? 0 : Math.max(0, (nowMs - baseline.startMs) / 1000);
+  const weightedBots = useMemo(() => {
+    return humanoidBots + Math.round(digitalBots * 0.06);
+  }, [humanoidBots, digitalBots]);
 
-  const people = baseline.people + elapsedSeconds * rates.peoplePerSecond;
-  const humanoidBots = baseline.humanoid + elapsedSeconds * rates.humanoidPerSecond;
-  const digitalBots = baseline.digital + elapsedSeconds * rates.digitalPerSecond;
+  const humansPerBot = useMemo(() => {
+    return (humans / weightedBots).toFixed(1);
+  }, [humans, weightedBots]);
 
-  const totalBots = humanoidBots + digitalBots;
-
-  // Human–Bot Ratio (humans per bot)
-  const humanBotRatio = people / Math.max(1, totalBots);
-
-  // Bot Population Index (0–100): 0 = bot-heavy, 100 = human-heavy
-  const bpi = clamp(humanBotRatio * 50, 0, 100);
-
-  const bpiLabel =
-    bpi >= 67 ? "Human-heavy" : bpi >= 33 ? "Balanced" : "Bot-heavy";
-
-  const ratioLine =
-    humanBotRatio >= 1
-      ? `${format1(humanBotRatio)} humans per bot`
-      : `${format1(1 / Math.max(0.000001, humanBotRatio))} bots per human`;
-
-  const meterPct = Math.round(bpi);
+  const bpiScore = 68.7;
 
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background: "#0b0f17",
-        color: "#e8eefc",
-        fontFamily:
-          "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial",
-        padding: "28px 18px 60px",
-      }}
-    >
-      {/* Top bar */}
-      <header
-        style={{
-          maxWidth: 980,
-          margin: "0 auto 24px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 12,
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: 14,
-              background:
-                "linear-gradient(135deg, rgba(99,102,241,1), rgba(34,197,94,1))",
-            }}
-          />
-          <div>
-            <div style={{ fontWeight: 700, letterSpacing: 0.3 }}>B4Bots</div>
-            <div style={{ opacity: 0.7, fontSize: 12 }}>
-              Bot Population Index
-            </div>
-          </div>
-        </div>
-
-        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-          <span
-            style={{
-              fontSize: 12,
-              padding: "6px 10px",
-              borderRadius: 999,
-              background: "rgba(255,255,255,0.06)",
-              border: "1px solid rgba(255,255,255,0.10)",
-            }}
-          >
-            UI-only demo
-          </span>
-          <span
-            style={{
-              fontSize: 12,
-              padding: "6px 10px",
-              borderRadius: 999,
-              background: "rgba(255,255,255,0.06)",
-              border: "1px solid rgba(255,255,255,0.10)",
-            }}
-          >
-            Smooth updates
-          </span>
-        </div>
-      </header>
-
-      {/* Hero */}
-      <section style={{ maxWidth: 980, margin: "0 auto 18px" }}>
-        <h1 style={{ fontSize: 34, lineHeight: 1.1, margin: "0 0 10px" }}>
-          Bot population, at a glance.
-        </h1>
-        <p style={{ opacity: 0.8, margin: 0, maxWidth: 720 }}>
-          Live counters for people, humanoid bots, and digital bots — plus a
-          single index that summarizes the balance.
-        </p>
-      </section>
-
-      {/* Summary row */}
-      <section
-        style={{
-          maxWidth: 980,
-          margin: "0 auto 18px",
-          display: "grid",
-          gridTemplateColumns: "1fr",
-          gap: 12,
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: 12,
-          }}
-        >
-          <div
-            style={{
-              borderRadius: 16,
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.10)",
-              padding: 16,
-              display: "flex",
-              flexDirection: "column",
-              gap: 10,
-            }}
-          >
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <div style={{ opacity: 0.7, fontSize: 12 }}>Bot Population Index (BPI)</div>
-              <div style={{ opacity: 0.7, fontSize: 12 }}>0–100</div>
-            </div>
-
-            <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
-              <div style={{ fontSize: 26, fontWeight: 800 }}>
-                {bpi.toFixed(1)} / 100
+    <main className="min-h-screen bg-[linear-gradient(180deg,#f8fbff_0%,#f2f7ff_18%,#e7f0ff_40%,#dce9ff_58%,#16233f_82%,#060b16_100%)] text-zinc-900">
+      <div className="mx-auto max-w-7xl px-5 py-6 md:px-8 md:py-8">
+        <header className="flex items-center justify-between">
+          <a href="/" className="flex items-center gap-3">
+            <div className="h-12 w-12 rounded-[18px] bg-[linear-gradient(135deg,#6f8cff_0%,#60b8e8_48%,#2cd39b_100%)] shadow-[0_12px_40px_rgba(74,144,226,0.28)]" />
+            <div className="leading-tight">
+              <div className="text-2xl font-semibold tracking-tight text-zinc-900">
+                B4Bots
               </div>
-              <div style={{ opacity: 0.8 }}>{bpiLabel}</div>
+              <div className="text-sm text-zinc-600">Bot Population Index</div>
             </div>
+          </a>
 
-            {/* Meter */}
-            <div
-              style={{
-                height: 10,
-                borderRadius: 999,
-                background: "rgba(255,255,255,0.10)",
-                overflow: "hidden",
-                border: "1px solid rgba(255,255,255,0.10)",
-              }}
+          <nav className="hidden items-center gap-6 text-sm text-zinc-600 md:flex">
+            <a href="/" className="transition hover:text-zinc-900">
+              Home
+            </a>
+            <a href="/bots" className="transition hover:text-zinc-900">
+              Bots
+            </a>
+            <a
+              href="/submit"
+              className="rounded-full border border-zinc-300 bg-white/60 px-4 py-2 transition hover:border-zinc-400 hover:text-zinc-900"
             >
-              <div
-                style={{
-                  width: `${meterPct}%`,
-                  height: "100%",
-                  background:
-                    "linear-gradient(90deg, rgba(34,197,94,1), rgba(99,102,241,1))",
-                }}
-              />
-            </div>
+              Submit
+            </a>
+          </nav>
+        </header>
 
-            <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, opacity: 0.7 }}>
-              <span>Bot-heavy</span>
-              <span>Balanced</span>
-              <span>Human-heavy</span>
-            </div>
-          </div>
-
-          <div
-            style={{
-              borderRadius: 16,
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.10)",
-              padding: 16,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: 12,
-            }}
-          >
+        <section className="mt-8 overflow-hidden rounded-[2rem] border border-white/60 bg-white/45 p-6 shadow-[0_20px_80px_rgba(130,160,220,0.16)] backdrop-blur md:p-8">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.95fr]">
             <div>
-              <div style={{ opacity: 0.7, fontSize: 12 }}>Human–Bot Ratio</div>
-              <div style={{ fontSize: 22, fontWeight: 800, marginTop: 6 }}>
-                {ratioLine}
+              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-zinc-900 md:text-6xl">
+                Bot population, at a glance.
+              </h1>
+
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-600 md:text-xl">
+                Live counters for people, humanoid bots, and digital bots — an
+                index that summarizes the balance.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="/bots"
+                  className="rounded-full bg-zinc-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-zinc-800"
+                >
+                  Browse bots
+                </a>
+                <a
+                  href="/submit"
+                  className="rounded-full border border-zinc-300 bg-white/70 px-5 py-3 text-sm font-medium text-zinc-700 transition hover:border-zinc-400 hover:text-zinc-900"
+                >
+                  Submit a listing
+                </a>
               </div>
             </div>
-            <span
-              style={{
-                fontSize: 12,
-                padding: "6px 10px",
-                borderRadius: 999,
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.10)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              LIVE
-            </span>
+
+            <GlassCard className="p-5">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-sm text-zinc-500">
+                    Bot Population Index (BPI)
+                  </div>
+
+                  <div className="mt-3 flex flex-wrap items-baseline gap-3">
+                    <div className="text-4xl font-semibold tracking-tight text-zinc-900 md:text-5xl">
+                      {bpiScore} / 100
+                    </div>
+                    <div className="text-2xl text-zinc-600">Human-heavy</div>
+                  </div>
+                </div>
+
+                <div className="text-sm text-zinc-500">0–100</div>
+              </div>
+
+              <div className="mt-6 h-4 rounded-full bg-zinc-300/80">
+                <div
+                  className="h-4 rounded-full bg-[linear-gradient(90deg,#2cd39b_0%,#59b9df_52%,#6f78ff_100%)]"
+                  style={{ width: `${bpiScore}%` }}
+                />
+              </div>
+
+              <div className="mt-3 grid grid-cols-3 text-sm text-zinc-500">
+                <div>Bot-heavy</div>
+                <div className="text-center">Balanced</div>
+                <div className="text-right">Human-heavy</div>
+              </div>
+            </GlassCard>
           </div>
-        </div>
-      </section>
 
-      {/* Three clocks */}
-      <section
-        style={{
-          maxWidth: 980,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-          gap: 12,
-        }}
-      >
-        <StatCard
-          title="People"
-          subtitle="Estimated humans alive"
-          value={formatInt(people)}
-        />
-        <StatCard
-          title="Humanoid Bots"
-          subtitle="Physical robots with human-like form"
-          value={formatInt(humanoidBots)}
-        />
-        <StatCard
-          title="Digital Bots"
-          subtitle="Agents, scripts, automated accounts"
-          value={formatInt(digitalBots)}
-        />
-      </section>
+          <div className="mt-8">
+            <GlassCard className="p-5">
+              <div className="mb-4 flex items-center justify-between">
+                <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">
+                  Live estimate
+                </div>
 
-      {/* Footer */}
-      <footer
-        style={{
-          maxWidth: 980,
-          margin: "26px auto 0",
-          opacity: 0.7,
-          fontSize: 12,
-          display: "flex",
-          justifyContent: "space-between",
-          gap: 10,
-          flexWrap: "wrap",
-        }}
-      >
-        <span>© {new Date().getFullYear()} B4Bots</span>
-        <span>Built with Next.js</span>
-      </footer>
+                <div className="inline-flex items-center gap-2 text-sm text-zinc-500">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                  Active
+                </div>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                <StatCard
+                  label="People"
+                  value={formatNumber(humans)}
+                  note="Estimated humans alive"
+                />
+
+                <StatCard
+                  label="Humanoid Bots"
+                  value={formatNumber(humanoidBots)}
+                  note="Physical robots with human-like form"
+                />
+
+                <StatCard
+                  label="Digital Bots"
+                  value={formatNumber(digitalBots)}
+                  note="Automated software systems and agents"
+                />
+
+                <StatCard
+                  label="Human–Bot Ratio"
+                  value={`${humansPerBot} humans per bot`}
+                  note="Weighted mainly toward humanoid bots, with digital bots counting less"
+                />
+              </div>
+            </GlassCard>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
 
-function StatCard(props: { title: string; subtitle: string; value: string }) {
+function GlassCard({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <div
-      style={{
-        borderRadius: 16,
-        background: "rgba(255,255,255,0.05)",
-        border: "1px solid rgba(255,255,255,0.10)",
-        padding: 16,
-        display: "flex",
-        flexDirection: "column",
-        gap: 8,
-      }}
+      className={`rounded-[1.75rem] border border-white/70 bg-[rgba(255,255,255,0.42)] shadow-[0_10px_30px_rgba(130,160,220,0.10)] backdrop-blur ${className}`}
     >
-      <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
-        <div>
-          <div style={{ fontSize: 12, opacity: 0.7 }}>{props.title}</div>
-          <div style={{ fontSize: 12, opacity: 0.7 }}>{props.subtitle}</div>
-        </div>
-        <span
-          style={{
-            fontSize: 12,
-            padding: "6px 10px",
-            borderRadius: 999,
-            background: "rgba(255,255,255,0.06)",
-            border: "1px solid rgba(255,255,255,0.10)",
-            height: "fit-content",
-          }}
-        >
-          LIVE
-        </span>
-      </div>
-
-      <div style={{ fontSize: 26, fontWeight: 900, letterSpacing: 0.2 }}>
-        {props.value}
-      </div>
+      {children}
     </div>
   );
+}
+
+function StatCard({
+  label,
+  value,
+  note,
+}: {
+  label: string;
+  value: string;
+  note: string;
+}) {
+  return (
+    <div className="rounded-[1.5rem] border border-white/70 bg-[rgba(240,246,255,0.52)] p-5 shadow-sm backdrop-blur">
+      <div className="text-sm text-zinc-500">{label}</div>
+      <div className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 md:text-5xl">
+        {value}
+      </div>
+      <div className="mt-3 text-sm text-zinc-500">{note}</div>
+    </div>
+  );
+}
+
+function formatNumber(value: number) {
+  return new Intl.NumberFormat("en-US").format(value);
+}
+
+function drift(
+  current: number,
+  minStep: number,
+  maxStep: number,
+  floor: number,
+  ceiling: number
+) {
+  const direction = Math.random() > 0.5 ? 1 : -1;
+  const magnitude =
+    Math.floor(Math.random() * (maxStep - minStep + 1)) + minStep;
+  const next = current + direction * magnitude;
+
+  if (next < floor) return floor + magnitude;
+  if (next > ceiling) return ceiling - magnitude;
+  return next;
 }
