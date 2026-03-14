@@ -1,30 +1,33 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+
+function drift(current: number, min: number, max: number, step: number) {
+  const direction = Math.random() > 0.5 ? 1 : -1;
+  let next = current + direction * Math.floor(Math.random() * step);
+
+  if (next > max) next = max;
+  if (next < min) next = min;
+
+  return next;
+}
 
 export default function Home() {
-  const [humans, setHumans] = useState(8123021033);
-  const [humanoidBots, setHumanoidBots] = useState(326000083);
-  const [digitalBots, setDigitalBots] = useState(4309999841);
+  const [humans, setHumans] = useState(8123041227);
+  const [bots, setBots] = useState(4308214672);
+  const [agents, setAgents] = useState(12418553);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setHumans((prev) => drift(prev, 0, 4, 8123020000, 8123099999));
-      setHumanoidBots((prev) => drift(prev, 1, 8, 325980000, 326120000));
-      setDigitalBots((prev) => drift(prev, 1, 10, 4309950000, 4310100000));
-    }, 1600);
+      setHumans((prev) => drift(prev, 8123000000, 8123500000, 5));
+      setBots((prev) => drift(prev, 4308000000, 4312000000, 9));
+      setAgents((prev) => drift(prev, 12300000, 12500000, 3));
+    }, 1500);
 
     return () => clearInterval(interval);
   }, []);
 
-  const weightedBots = useMemo(() => {
-    return humanoidBots + Math.round(digitalBots * 0.06);
-  }, [humanoidBots, digitalBots]);
-
-  const humansPerBot = useMemo(() => {
-    return (humans / weightedBots).toFixed(1);
-  }, [humans, weightedBots]);
-
+  const ratio = (bots / humans).toFixed(2);
   const bpiScore = 68.7;
 
   return (
@@ -85,7 +88,7 @@ export default function Home() {
               </div>
             </div>
 
-            <GlassCard className="p-5">
+            <div className="rounded-[1.75rem] border border-white/70 bg-[rgba(255,255,255,0.42)] p-5 shadow-[0_10px_30px_rgba(130,160,220,0.10)] backdrop-blur">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-zinc-500">
@@ -115,48 +118,50 @@ export default function Home() {
                 <div className="text-center">Balanced</div>
                 <div className="text-right">Human-heavy</div>
               </div>
-            </GlassCard>
+            </div>
           </div>
 
-          <div className="mt-8">
-            <GlassCard className="p-5">
-              <div className="mb-4 flex items-center justify-between">
-                <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">
-                  Live estimate
-                </div>
-
-                <div className="inline-flex items-center gap-2 text-sm text-zinc-500">
-                  <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                  Active
-                </div>
+          <div className="mt-8 rounded-[1.75rem] border border-white/70 bg-[rgba(255,255,255,0.42)] p-5 shadow-[0_10px_30px_rgba(130,160,220,0.10)] backdrop-blur">
+            <div className="mb-4 flex items-center justify-between">
+              <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">
+                Live estimate
               </div>
 
-              <div className="grid gap-4 md:grid-cols-2">
-                <StatCard
-                  label="People"
-                  value={formatNumber(humans)}
-                  note="Estimated humans alive"
-                />
-
-                <StatCard
-                  label="Humanoid Bots"
-                  value={formatNumber(humanoidBots)}
-                  note="Physical robots with human-like form"
-                />
-
-                <StatCard
-                  label="Digital Bots"
-                  value={formatNumber(digitalBots)}
-                  note="Automated software systems and agents"
-                />
-
-                <StatCard
-                  label="Human–Bot Ratio"
-                  value={`${humansPerBot} humans per bot`}
-                  note="Weighted mainly toward humanoid bots, with digital bots counting less"
-                />
+              <div className="inline-flex items-center gap-2 text-sm text-zinc-500">
+                <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                Active
               </div>
-            </GlassCard>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <StatCard
+                label="People"
+                value={humans.toLocaleString()}
+                note="Estimated humans alive"
+                tone="white"
+              />
+
+              <StatCard
+                label="Bots"
+                value={bots.toLocaleString()}
+                note="Estimated active bot activity"
+                tone="gray"
+              />
+
+              <StatCard
+                label="AI Agents"
+                value={agents.toLocaleString()}
+                note="Autonomous software agents"
+                tone="white"
+              />
+
+              <StatCard
+                label="Bot / Human Ratio"
+                value={ratio}
+                note="Bots relative to humans"
+                tone="gray"
+              />
+            </div>
           </div>
         </section>
       </div>
@@ -164,59 +169,30 @@ export default function Home() {
   );
 }
 
-function GlassCard({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`rounded-[1.75rem] border border-white/70 bg-[rgba(255,255,255,0.42)] shadow-[0_10px_30px_rgba(130,160,220,0.10)] backdrop-blur ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
 function StatCard({
   label,
   value,
   note,
+  tone,
 }: {
   label: string;
   value: string;
   note: string;
+  tone: "white" | "gray";
 }) {
   return (
-    <div className="rounded-[1.5rem] border border-white/70 bg-[rgba(240,246,255,0.52)] p-5 shadow-sm backdrop-blur">
-      <div className="text-sm text-zinc-500">{label}</div>
-      <div className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 md:text-5xl">
+    <div
+      className={`rounded-[1.35rem] border p-5 shadow-sm backdrop-blur transition-all duration-500 ${
+        tone === "gray"
+          ? "border-white/70 bg-[rgba(240,246,255,0.52)]"
+          : "border-white/70 bg-white/70"
+      }`}
+    >
+      <div className="text-xs text-zinc-500 mb-2">{label}</div>
+      <div className="text-2xl font-semibold tracking-tight text-zinc-900 md:text-3xl">
         {value}
       </div>
-      <div className="mt-3 text-sm text-zinc-500">{note}</div>
+      <div className="mt-2 text-xs text-zinc-500">{note}</div>
     </div>
   );
-}
-
-function formatNumber(value: number) {
-  return new Intl.NumberFormat("en-US").format(value);
-}
-
-function drift(
-  current: number,
-  minStep: number,
-  maxStep: number,
-  floor: number,
-  ceiling: number
-) {
-  const direction = Math.random() > 0.5 ? 1 : -1;
-  const magnitude =
-    Math.floor(Math.random() * (maxStep - minStep + 1)) + minStep;
-  const next = current + direction * magnitude;
-
-  if (next < floor) return floor + magnitude;
-  if (next > ceiling) return ceiling - magnitude;
-  return next;
 }
