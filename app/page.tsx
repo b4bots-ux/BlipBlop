@@ -40,7 +40,6 @@ export default function Home() {
               <div className="text-2xl font-semibold tracking-tight text-zinc-900">
                 B4Bots
               </div>
-              <div className="text-sm text-zinc-600">Bot Population Index</div>
             </div>
           </a>
 
