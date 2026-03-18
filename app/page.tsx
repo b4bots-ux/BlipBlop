@@ -1,197 +1,156 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
-function drift(current: number, min: number, max: number, step: number) {
-  const direction = Math.random() > 0.5 ? 1 : -1;
-  let next = current + direction * Math.floor(Math.random() * step);
-
-  if (next > max) next = max;
-  if (next < min) next = min;
-
-  return next;
-}
-
-export default function Home() {
-  const [humans, setHumans] = useState(8123041227);
-  const [bots, setBots] = useState(4308214672);
-  const [agents, setAgents] = useState(12418553);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHumans((prev) => drift(prev, 8123000000, 8123500000, 5));
-      setBots((prev) => drift(prev, 4308000000, 4312000000, 9));
-      setAgents((prev) => drift(prev, 12300000, 12500000, 3));
-    }, 1500);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const ratio = (bots / humans).toFixed(2);
-  const bpiScore = 68.7;
+export default function HomePage() {
+  const humans = "8,123,041,217";
+  const bots = "4,308,214,693";
+  const agents = "12,418,541";
+  const ratio = "0.53";
+  const bpi = 68.7;
 
   return (
-    <main className="min-h-screen bg-[linear-gradient(180deg,#f8fbff_0%,#f2f7ff_18%,#e7f0ff_40%,#dce9ff_58%,#16233f_82%,#060b16_100%)] text-zinc-900">
-      <div className="mx-auto max-w-7xl px-5 py-6 md:px-8 md:py-8">
-        <header className="flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3">
-            <div className="h-12 w-12 rounded-[18px] bg-[linear-gradient(135deg,#6f8cff_0%,#60b8e8_48%,#2cd39b_100%)] shadow-[0_12px_40px_rgba(74,144,226,0.28)]" />
-            <div className="leading-tight">
-              <div className="text-2xl font-semibold tracking-tight text-zinc-900">
-                B4Bots
+    <main className="min-h-screen bg-[radial-gradient(circle_at_top,#eef4ff,white_55%,#dbe6ff)] text-zinc-900">
+      <section className="mx-auto max-w-6xl px-4 pb-16 pt-6 sm:px-6 lg:px-8">
+        <div className="overflow-hidden rounded-[2rem] border border-white/50 bg-white/60 shadow-[0_20px_80px_rgba(50,80,180,0.18)] backdrop-blur">
+          <div className="px-5 py-5 sm:px-8 sm:py-6">
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-emerald-400 to-indigo-500" />
+                <div>
+                  <div className="text-xl font-semibold tracking-tight">B4Bots</div>
+                  <div className="text-sm text-zinc-500">Bot Population Index</div>
+                </div>
               </div>
+
+              <nav className="hidden items-center gap-6 text-sm text-zinc-600 sm:flex">
+                <a href="/" className="transition hover:text-zinc-900">
+                  Home
+                </a>
+                <a href="/bots" className="transition hover:text-zinc-900">
+                  Bots
+                </a>
+                <a
+                  href="/submit"
+                  className="rounded-full border border-zinc-200 bg-white px-4 py-2 text-zinc-700 shadow-sm transition hover:text-zinc-900"
+                >
+                  Submit
+                </a>
+              </nav>
             </div>
-          </a>
 
-          <nav className="hidden items-center gap-6 text-sm text-zinc-600 md:flex">
-            <a href="/" className="transition hover:text-zinc-900">
-              Home
-            </a>
-            <a href="/bots" className="transition hover:text-zinc-900">
-              Bots
-            </a>
-            <a
-              href="/submit"
-              className="rounded-full border border-zinc-300 bg-white/60 px-4 py-2 transition hover:border-zinc-400 hover:text-zinc-900"
-            >
-              Submit
-            </a>
-          </nav>
-        </header>
-
-        <section className="mt-8 overflow-hidden rounded-[2rem] border border-white/60 bg-white/45 p-6 shadow-[0_20px_80px_rgba(130,160,220,0.16)] backdrop-blur md:p-8">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.95fr]">
-            <div>
-              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-zinc-900 md:text-6xl">
+            <section className="mt-8 rounded-[1.75rem] bg-white/50 p-5 sm:p-8">
+              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
                 Bot population, at a glance.
               </h1>
 
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-600 md:text-xl">
+              <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-600 sm:text-lg">
                 Live counters for people, humanoid bots, and digital bots — an
                 index that summarizes the balance.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <a
                   href="/bots"
-                  className="rounded-full bg-zinc-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-zinc-800"
+                  className="rounded-full bg-zinc-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800"
                 >
                   Browse bots
                 </a>
                 <a
                   href="/submit"
-                  className="rounded-full border border-zinc-300 bg-white/70 px-5 py-3 text-sm font-medium text-zinc-700 transition hover:border-zinc-400 hover:text-zinc-900"
+                  className="rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 shadow-sm transition hover:text-zinc-900"
                 >
                   Submit a listing
                 </a>
               </div>
-            </div>
+            </section>
 
-            <div className="rounded-[1.75rem] border border-white/70 bg-[rgba(255,255,255,0.42)] p-5 shadow-[0_10px_30px_rgba(130,160,220,0.10)] backdrop-blur">
-              <div className="flex items-center justify-between">
+            <section className="mt-6 rounded-[1.75rem] bg-white/50 p-5 sm:p-6">
+              <div className="mb-4 flex items-start justify-between gap-4">
                 <div>
-                  <div className="text-sm text-zinc-500">
-                    Bot Population Index (BPI)
-                  </div>
-
-                  <div className="mt-3 flex flex-wrap items-baseline gap-3">
-                    <div className="text-4xl font-semibold tracking-tight text-zinc-900 md:text-5xl">
-                      {bpiScore} / 100
-                    </div>
-                    <div className="text-2xl text-zinc-600">Human-heavy</div>
+                  <p className="text-sm text-zinc-500">Bot Population Index (BPI)</p>
+                  <div className="mt-2 flex flex-wrap items-baseline gap-3">
+                    <span className="text-3xl font-semibold tracking-tight sm:text-5xl">
+                      {bpi} / 100
+                    </span>
+                    <span className="text-2xl text-zinc-600 sm:text-4xl">
+                      Human-heavy
+                    </span>
                   </div>
                 </div>
-
-                <div className="text-sm text-zinc-500">0–100</div>
+                <p className="text-sm text-zinc-400">0–100</p>
               </div>
 
-              <div className="mt-6 h-4 rounded-full bg-zinc-300/80">
+              <div className="h-4 w-full overflow-hidden rounded-full bg-zinc-200">
                 <div
-                  className="h-4 rounded-full bg-[linear-gradient(90deg,#2cd39b_0%,#59b9df_52%,#6f78ff_100%)]"
-                  style={{ width: `${bpiScore}%` }}
+                  className="h-full rounded-full bg-gradient-to-r from-emerald-400 via-sky-400 to-indigo-500"
+                  style={{ width: `${bpi}%` }}
                 />
               </div>
 
               <div className="mt-3 grid grid-cols-3 text-sm text-zinc-500">
-                <div>Bot-heavy</div>
-                <div className="text-center">Balanced</div>
-                <div className="text-right">Human-heavy</div>
+                <span className="text-left">Bot-heavy</span>
+                <span className="text-center">Balanced</span>
+                <span className="text-right">Human-heavy</span>
               </div>
-            </div>
+            </section>
+
+            <section className="mt-6 rounded-[1.75rem] bg-white/50 p-4 sm:p-6">
+              <div className="mb-5 flex items-center justify-between gap-3">
+                <p className="text-[11px] font-medium tracking-[0.35em] text-zinc-500 sm:text-xs">
+                  LIVE ESTIMATE
+                </p>
+                <div className="flex items-center gap-2 text-sm text-zinc-600">
+                  <span className="inline-block h-3 w-3 rounded-full bg-emerald-500" />
+                  Active
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="min-w-0 rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+                  <p className="text-sm text-zinc-500">People</p>
+                  <p className="mt-4 text-[clamp(1.8rem,7vw,3rem)] font-semibold leading-none tracking-tight text-zinc-900 [overflow-wrap:anywhere]">
+                    {humans}
+                  </p>
+                  <p className="mt-4 text-sm text-zinc-500">
+                    Estimated humans alive
+                  </p>
+                </div>
+
+                <div className="min-w-0 rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+                  <p className="text-sm text-zinc-500">Bots</p>
+                  <p className="mt-4 text-[clamp(1.8rem,7vw,3rem)] font-semibold leading-none tracking-tight text-zinc-900 [overflow-wrap:anywhere]">
+                    {bots}
+                  </p>
+                  <p className="mt-4 text-sm text-zinc-500">
+                    Estimated active bot activity
+                  </p>
+                </div>
+
+                <div className="min-w-0 rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+                  <p className="text-sm text-zinc-500">AI Agents</p>
+                  <p className="mt-4 text-[clamp(1.8rem,7vw,3rem)] font-semibold leading-none tracking-tight text-zinc-900 [overflow-wrap:anywhere]">
+                    {agents}
+                  </p>
+                  <p className="mt-4 text-sm text-zinc-500">
+                    Autonomous software agents
+                  </p>
+                </div>
+
+                <div className="min-w-0 rounded-[1.5rem] border border-zinc-200 bg-white p-5 shadow-sm">
+                  <p className="text-sm text-zinc-500">Bot / Human Ratio</p>
+                  <p className="mt-4 text-[clamp(1.8rem,7vw,3rem)] font-semibold leading-none tracking-tight text-zinc-900 [overflow-wrap:anywhere]">
+                    {ratio}
+                  </p>
+                  <p className="mt-4 text-sm text-zinc-500">
+                    Bots relative to humans
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <footer className="mt-8 border-t border-white/40 pt-6 text-sm text-zinc-500">
+              Explore robots and digital agents.
+            </footer>
           </div>
-
-          <div className="mt-8 rounded-[1.75rem] border border-white/70 bg-[rgba(255,255,255,0.42)] p-5 shadow-[0_10px_30px_rgba(130,160,220,0.10)] backdrop-blur">
-            <div className="mb-4 flex items-center justify-between">
-              <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">
-                Live estimate
-              </div>
-
-              <div className="inline-flex items-center gap-2 text-sm text-zinc-500">
-                <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                Active
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <StatCard
-                label="People"
-                value={humans.toLocaleString()}
-                note="Estimated humans alive"
-                tone="white"
-              />
-
-              <StatCard
-                label="Bots"
-                value={bots.toLocaleString()}
-                note="Estimated active bot activity"
-                tone="gray"
-              />
-
-              <StatCard
-                label="AI Agents"
-                value={agents.toLocaleString()}
-                note="Autonomous software agents"
-                tone="white"
-              />
-
-              <StatCard
-                label="Bot / Human Ratio"
-                value={ratio}
-                note="Bots relative to humans"
-                tone="gray"
-              />
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
-  );
-}
-
-function StatCard({
-  label,
-  value,
-  note,
-  tone,
-}: {
-  label: string;
-  value: string;
-  note: string;
-  tone: "white" | "gray";
-}) {
-  return (
-    <div
-      className={`rounded-[1.35rem] border p-5 shadow-sm backdrop-blur transition-all duration-500 ${
-        tone === "gray"
-          ? "border-white/70 bg-[rgba(240,246,255,0.52)]"
-          : "border-white/70 bg-white/70"
-      }`}
-    >
-      <div className="text-xs text-zinc-500 mb-2">{label}</div>
-      <div className="text-2xl font-semibold tracking-tight text-zinc-900 md:text-3xl">
-        {value}
-      </div>
-      <div className="mt-2 text-xs text-zinc-500">{note}</div>
-    </div>
   );
 }
