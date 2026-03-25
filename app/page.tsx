@@ -92,11 +92,10 @@ export default function HomePage() {
         volatility: 3,
       },
       {
-        label: "Bot / Human Ratio",
-        base: 0.53,
-        decimals: 2,
-        description: "Bots relative to humans",
-        volatility: 0.0025,
+        label: "Active Internet Users",
+        base: 6101241826,
+        description: "Estimated people online worldwide",
+        volatility: 10,
       },
     ],
     []
