@@ -19,7 +19,7 @@ const featuredRobots: Robot[] = [
     status: "Ships now",
     price: "$17,990+",
     description: "Compact humanoid platform for research, labs, and demos.",
-    image: "/robots/unitree-g1.jpg",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/unitree.jpeg?width=900&quality=80",
     href: "/physical/unitree-g1",
   },
   {
@@ -29,7 +29,7 @@ const featuredRobots: Robot[] = [
     status: "Enterprise",
     price: "Contact",
     description: "Enterprise humanoid focused on logistics and industrial work.",
-    image: "/robots/figure-02.jpg",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/figure02.jpeg?width=900&quality=80",
     href: "/physical/figure-02",
   },
   {
@@ -39,7 +39,7 @@ const featuredRobots: Robot[] = [
     status: "Enterprise",
     price: "Contact",
     description: "Mobile inspection robot used in industrial and enterprise settings.",
-    image: "/robots/spot.jpg",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/spot.jpeg?width=900&quality=80",
     href: "/physical/spot",
   },
   {
@@ -49,7 +49,7 @@ const featuredRobots: Robot[] = [
     status: "In development",
     price: "Contact",
     description: "Biped robot designed for logistics and repetitive warehouse tasks.",
-    image: "/robots/digit.jpg",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/digit.jpeg?width=900&quality=80",
     href: "/physical/digit",
   },
   {
@@ -59,7 +59,7 @@ const featuredRobots: Robot[] = [
     status: "Pre-order",
     price: "~$20,000",
     description: "Home-oriented humanoid concept aimed at consumer assistance.",
-    image: "/robots/neo.jpg",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/neo.jpeg?width=900&quality=80",
     href: "/physical/neo",
   },
   {
@@ -69,7 +69,7 @@ const featuredRobots: Robot[] = [
     status: "Ships now",
     price: "$2,590+",
     description: "Entry-level quadruped platform with broad hobbyist and dev appeal.",
-    image: "/robots/go2.jpg",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/go2.jpeg?width=900&quality=80",
     href: "/physical/go2",
   },
 ];
@@ -82,7 +82,7 @@ const developmentRobots: Robot[] = [
     status: "In development",
     price: "TBD",
     description: "Internal deployment focus with long-term public ambitions.",
-    image: "/robots/optimus.jpg",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/optimus.jpeg?width=900&quality=80",
     href: "/physical/optimus",
   },
   {
@@ -92,7 +92,7 @@ const developmentRobots: Robot[] = [
     status: "In development",
     price: "TBD",
     description: "High-performance humanoid platform with selective partner access.",
-    image: "/robots/atlas.jpg",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/atlas.jpeg?width=900&quality=80",
     href: "/physical/atlas",
   },
   {
@@ -102,7 +102,7 @@ const developmentRobots: Robot[] = [
     status: "In development",
     price: "RaaS",
     description: "Humanoid built around enterprise deployment and service models.",
-    image: "/robots/apollo.jpg",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/apollo.jpeg?width=900&quality=80", // Keep original
     href: "/physical/apollo",
   },
 ];
@@ -118,14 +118,10 @@ const categories = [
 
 function StatusBadge({ status }: { status: Robot["status"] }) {
   const styles: Record<Robot["status"], string> = {
-    "Ships now":
-      "border-emerald-400/30 bg-emerald-400/10 text-emerald-200",
-    "Pre-order":
-      "border-amber-400/30 bg-amber-400/10 text-amber-200",
-    Enterprise:
-      "border-sky-400/30 bg-sky-400/10 text-sky-200",
-    "In development":
-      "border-white/15 bg-white/5 text-white/70",
+    "Ships now": "border-emerald-400/30 bg-emerald-400/10 text-emerald-200",
+    "Pre-order": "border-amber-400/30 bg-amber-400/10 text-amber-200",
+    Enterprise: "border-sky-400/30 bg-sky-400/10 text-sky-200",
+    "In development": "border-white/15 bg-white/5 text-white/70",
   };
 
   return (
@@ -148,6 +144,7 @@ function RobotCard({ robot }: { robot: Robot }) {
           src={robot.image}
           alt={robot.name}
           className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+          loading="lazy"
         />
       </div>
 
