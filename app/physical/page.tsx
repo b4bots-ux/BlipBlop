@@ -269,7 +269,7 @@ export default function PhysicalPage() {
             </h2>
           </div>
           <Link
-            href="/physical/all"
+            href="#development"
             className="text-sm text-white/65 transition hover:text-white"
           >
             View all →
@@ -300,7 +300,7 @@ export default function PhysicalPage() {
             {categories.map((category) => (
               <Link
                 key={category}
-                href={`/physical/${category.toLowerCase().replace(/\s+/g, "-")}`}
+                href="#featured"
                 className="rounded-2xl border border-white/10 bg-black/20 p-5 transition hover:border-white/20 hover:bg-black/30"
               >
                 <div className="flex items-center justify-between">
