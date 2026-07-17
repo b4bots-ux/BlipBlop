@@ -72,6 +72,16 @@ const featuredRobots: Robot[] = [
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/go2.jpeg?width=900&quality=80",
     href: "/physical/go2",
   },
+  {
+    name: "Stark Scooter",
+    company: "Stark",
+    category: "Autonomous Vehicle",
+    status: "Pre-order",
+    price: "Contact",
+    description: "Autonomous delivery scooter with 360° vision, LiDAR, and deployable stabilizer arms, built for fleet operators on a Segway Max platform.",
+    image: "https://lh3.google.com/u/0/d/149XOivOSPgl92ZJeP7u9WpTKpZXk709J=w567-h423-p-k-nu-iv2?auditContext=thumbnail",
+    href: "/physical/stark-scooter",
+  },
 ];
 
 const developmentRobots: Robot[] = [
@@ -223,7 +233,7 @@ export default function PhysicalPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Robots tracked</p>
-                <p className="mt-3 text-3xl font-semibold">9</p>
+                <p className="mt-3 text-3xl font-semibold">10</p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Humanoids</p>
@@ -235,7 +245,7 @@ export default function PhysicalPage() {
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Manufacturers</p>
-                <p className="mt-3 text-3xl font-semibold">7</p>
+                <p className="mt-3 text-3xl font-semibold">8</p>
               </div>
             </div>
           </div>
