@@ -223,19 +223,19 @@ export default function PhysicalPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Robots tracked</p>
-                <p className="mt-3 text-3xl font-semibold">62</p>
-              </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
-                <p className="text-sm text-white/55">Humanoids</p>
-                <p className="mt-3 text-3xl font-semibold">18</p>
-              </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
-                <p className="text-sm text-white/55">Available now</p>
                 <p className="mt-3 text-3xl font-semibold">9</p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
+                <p className="text-sm text-white/55">Humanoids</p>
+                <p className="mt-3 text-3xl font-semibold">5</p>
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
+                <p className="text-sm text-white/55">Available now</p>
+                <p className="mt-3 text-3xl font-semibold">2</p>
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Manufacturers</p>
-                <p className="mt-3 text-3xl font-semibold">25+</p>
+                <p className="mt-3 text-3xl font-semibold">7</p>
               </div>
             </div>
           </div>

@@ -75,25 +75,25 @@ export default function HomePage() {
     () => [
       {
         label: "People",
-        base: 8123041277,
+        base: 8303341729,
         description: "Estimated humans alive",
         volatility: 4,
       },
       {
         label: "Bots",
-        base: 4308214687,
+        base: 6895000000,
         description: "Estimated active bot activity",
         volatility: 7,
       },
       {
         label: "AI Agents",
-        base: 12418569,
+        base: 45000000,
         description: "Autonomous software agents",
         volatility: 3,
       },
       {
         label: "Active Internet Users",
-        base: 6101241826,
+        base: 6120000000,
         description: "Estimated people online worldwide",
         volatility: 10,
       },
@@ -147,10 +147,10 @@ export default function HomePage() {
               <div className="mt-4 flex items-start justify-between gap-4">
                 <div className="min-w-0">
                   <div className="text-[clamp(2.1rem,8.5vw,5rem)] font-semibold leading-none tracking-tight text-[#111827]">
-                    68.7 / 100
+                    54.6 / 100
                   </div>
                   <div className="mt-3 text-xl text-neutral-700 sm:text-4xl">
-                    Human-heavy
+                    Balanced
                   </div>
                 </div>
 
@@ -161,7 +161,7 @@ export default function HomePage() {
 
               <div className="mt-8">
                 <div className="h-4 w-full rounded-full bg-[#d7dbe4] sm:h-5">
-                  <div className="h-4 w-[68.7%] rounded-full bg-gradient-to-r from-emerald-400 via-sky-400 to-indigo-500 sm:h-5" />
+                  <div className="h-4 w-[54.6%] rounded-full bg-gradient-to-r from-emerald-400 via-sky-400 to-indigo-500 sm:h-5" />
                 </div>
 
                 <div className="mt-4 grid grid-cols-3 text-center text-[11px] text-neutral-500 sm:text-2xl">
