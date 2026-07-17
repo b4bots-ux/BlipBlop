@@ -105,6 +105,16 @@ const allRobots: Robot[] = [
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/apollo.jpeg?width=900&quality=80",
     href: "/physical/apollo",
   },
+  {
+    name: "Stark Scooter",
+    company: "Stark",
+    category: "Autonomous Vehicle",
+    status: "Pre-order",
+    price: "Contact",
+    description: "Autonomous delivery scooter with 360° vision, LiDAR, and deployable stabilizer arms, built for fleet operators on a Segway Max platform.",
+    image: "https://lh3.google.com/u/0/d/149XOivOSPgl92ZJeP7u9WpTKpZXk709J=w567-h423-p-k-nu-iv2?auditContext=thumbnail",
+    href: "/physical/stark-scooter",
+  },
 ];
 
 // Official / purchase links (ready for affiliate links later)
@@ -119,6 +129,7 @@ function getExternalLink(robotName: string): string {
     "Optimus": "https://www.tesla.com/optimus",
     "Atlas": "https://bostondynamics.com/",
     "Apollo": "https://apptronik.com/",
+    "Stark Scooter": "https://starkvehicles.com",
   };
   return links[robotName] || "#";
 }
