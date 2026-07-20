@@ -112,7 +112,7 @@ const allRobots: Robot[] = [
     status: "Pre-order",
     price: "Contact",
     description: "Autonomous delivery scooter with 360° vision, LiDAR, and deployable stabilizer arms, built for fleet operators on a Segway Max platform.",
-    image: "https://lh3.google.com/u/0/d/149XOivOSPgl92ZJeP7u9WpTKpZXk709J=w567-h423-p-k-nu-iv2?auditContext=thumbnail",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/Stark.jpeg?width=900&quality=80",
     href: "/physical/stark-scooter",
   },
 ];
