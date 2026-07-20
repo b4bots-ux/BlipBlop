@@ -81,19 +81,19 @@ export default function HomePage() {
       },
       {
         label: "Bots",
-        base: 6895000000,
+        base: 6907741134,
         description: "Estimated active bot activity",
         volatility: 7,
       },
       {
         label: "AI Agents",
-        base: 45000000,
+        base: 44812377,
         description: "Autonomous software agents",
         volatility: 3,
       },
       {
         label: "Active Internet Users",
-        base: 6120000000,
+        base: 6123845911,
         description: "Estimated people online worldwide",
         volatility: 10,
       },
