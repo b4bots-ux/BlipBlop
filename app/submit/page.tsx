@@ -41,7 +41,7 @@ export default function SubmitPage() {
     if (error) {
       setMessage('Error: ' + error.message)
     } else {
-      setMessage('Submitted successfully!')
+      setMessage("Submitted! It'll show up on the Community page once it's approved.")
       setForm({
         name: '',
         website: '',
