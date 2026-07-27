@@ -143,12 +143,39 @@ export default function HomePage() {
               href="/population-index"
               target="_blank"
               rel="noreferrer"
-              className="mt-10 block rounded-[2rem] border border-white/40 bg-white/38 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md transition hover:bg-white/50 sm:p-7"
+              className="group mt-10 block rounded-[2rem] border border-white/40 bg-white/38 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md transition hover:bg-white/50 sm:p-7"
             >
               <div className="flex items-center justify-between gap-3 text-sm font-medium tracking-wide text-neutral-500 sm:text-base">
                 <span>Bot Population Index (BPI)</span>
-                <span className="text-xs font-normal text-neutral-400 underline underline-offset-4 sm:text-sm">
-                  Learn more
+                <span
+                  aria-label="More about the BPI"
+                  className="shrink-0 text-neutral-400 opacity-70 transition group-hover:opacity-100"
+                >
+                  <svg
+                    width="26"
+                    height="18"
+                    viewBox="0 0 32 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="sm:h-6 sm:w-[38px]"
+                  >
+                    {/* robot head */}
+                    <line x1="9" y1="7" x2="9" y2="3.2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+                    <circle cx="9" cy="2.4" r="1" fill="currentColor" />
+                    <rect x="1" y="10" width="2" height="5" rx="1" fill="currentColor" />
+                    <rect x="15" y="10" width="2" height="5" rx="1" fill="currentColor" />
+                    <rect x="2" y="7" width="14" height="11" rx="5" stroke="currentColor" strokeWidth="1.3" />
+                    <circle cx="6.6" cy="12.6" r="1.05" fill="currentColor" />
+                    <circle cx="11.4" cy="12.6" r="1.05" fill="currentColor" />
+
+                    {/* thought trail + cloud */}
+                    <circle cx="19" cy="7.4" r="0.8" fill="currentColor" opacity="0.55" />
+                    <circle cx="21.3" cy="5.1" r="1.1" fill="currentColor" opacity="0.7" />
+                    <circle cx="25.6" cy="3" r="2.2" fill="currentColor" opacity="0.85" />
+                    <circle cx="23.3" cy="4.3" r="1.6" fill="currentColor" opacity="0.85" />
+                    <circle cx="27.6" cy="4.5" r="1.5" fill="currentColor" opacity="0.85" />
+                    <circle cx="25.4" cy="5.5" r="1.4" fill="currentColor" opacity="0.85" />
+                  </svg>
                 </span>
               </div>
 
