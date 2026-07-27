@@ -152,20 +152,29 @@ export default function HomePage() {
                   className="shrink-0 text-neutral-400 opacity-70 transition group-hover:opacity-100"
                 >
                   <svg
-                    width="18"
+                    width="26"
                     height="18"
-                    viewBox="0 0 24 24"
+                    viewBox="0 0 32 22"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="sm:h-5 sm:w-5"
+                    className="sm:h-6 sm:w-[38px]"
                   >
-                    <line x1="8" y1="3.5" x2="6.5" y2="1.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                    <line x1="16" y1="3.5" x2="17.5" y2="1.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                    <rect x="4" y="5" width="16" height="12" rx="6" stroke="currentColor" strokeWidth="1.4" />
-                    <circle cx="9" cy="11" r="1.1" fill="currentColor" />
-                    <circle cx="15" cy="11" r="1.1" fill="currentColor" />
-                    <circle cx="19.5" cy="19" r="1" fill="currentColor" />
-                    <circle cx="21.5" cy="21.5" r="0.6" fill="currentColor" />
+                    {/* robot head */}
+                    <line x1="9" y1="7" x2="9" y2="3.2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+                    <circle cx="9" cy="2.4" r="1" fill="currentColor" />
+                    <rect x="1" y="10" width="2" height="5" rx="1" fill="currentColor" />
+                    <rect x="15" y="10" width="2" height="5" rx="1" fill="currentColor" />
+                    <rect x="2" y="7" width="14" height="11" rx="5" stroke="currentColor" strokeWidth="1.3" />
+                    <circle cx="6.6" cy="12.6" r="1.05" fill="currentColor" />
+                    <circle cx="11.4" cy="12.6" r="1.05" fill="currentColor" />
+
+                    {/* thought trail + cloud */}
+                    <circle cx="19" cy="7.4" r="0.8" fill="currentColor" opacity="0.55" />
+                    <circle cx="21.3" cy="5.1" r="1.1" fill="currentColor" opacity="0.7" />
+                    <circle cx="25.6" cy="3" r="2.2" fill="currentColor" opacity="0.85" />
+                    <circle cx="23.3" cy="4.3" r="1.6" fill="currentColor" opacity="0.85" />
+                    <circle cx="27.6" cy="4.5" r="1.5" fill="currentColor" opacity="0.85" />
+                    <circle cx="25.4" cy="5.5" r="1.4" fill="currentColor" opacity="0.85" />
                   </svg>
                 </span>
               </div>
