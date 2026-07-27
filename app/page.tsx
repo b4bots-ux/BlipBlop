@@ -139,9 +139,17 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="mt-10 rounded-[2rem] border border-white/40 bg-white/38 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md sm:p-7">
-              <div className="text-sm font-medium tracking-wide text-neutral-500 sm:text-base">
-                Bot Population Index (BPI)
+            <a
+              href="/population-index"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-10 block rounded-[2rem] border border-white/40 bg-white/38 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md transition hover:bg-white/50 sm:p-7"
+            >
+              <div className="flex items-center justify-between gap-3 text-sm font-medium tracking-wide text-neutral-500 sm:text-base">
+                <span>Bot Population Index (BPI)</span>
+                <span className="text-xs font-normal text-neutral-400 underline underline-offset-4 sm:text-sm">
+                  Learn more
+                </span>
               </div>
 
               <div className="mt-4 flex items-start justify-between gap-4">
@@ -170,7 +178,7 @@ export default function HomePage() {
                   <div>Human-heavy</div>
                 </div>
               </div>
-            </div>
+            </a>
 
             <div className="mt-10 rounded-[2rem] bg-gradient-to-b from-[#d8e0f2]/95 to-[#8e9dc2]/95 p-2 sm:p-4">
               <div className="rounded-[1.6rem] border border-white/35 bg-white/28 p-3 backdrop-blur-md sm:rounded-[2rem] sm:p-6">
