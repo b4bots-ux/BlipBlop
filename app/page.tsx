@@ -143,12 +143,30 @@ export default function HomePage() {
               href="/population-index"
               target="_blank"
               rel="noreferrer"
-              className="mt-10 block rounded-[2rem] border border-white/40 bg-white/38 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md transition hover:bg-white/50 sm:p-7"
+              className="group mt-10 block rounded-[2rem] border border-white/40 bg-white/38 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md transition hover:bg-white/50 sm:p-7"
             >
               <div className="flex items-center justify-between gap-3 text-sm font-medium tracking-wide text-neutral-500 sm:text-base">
                 <span>Bot Population Index (BPI)</span>
-                <span className="text-xs font-normal text-neutral-400 underline underline-offset-4 sm:text-sm">
-                  Learn more
+                <span
+                  aria-label="More about the BPI"
+                  className="shrink-0 text-neutral-400 opacity-70 transition group-hover:opacity-100"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="sm:h-5 sm:w-5"
+                  >
+                    <line x1="8" y1="3.5" x2="6.5" y2="1.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                    <line x1="16" y1="3.5" x2="17.5" y2="1.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                    <rect x="4" y="5" width="16" height="12" rx="6" stroke="currentColor" strokeWidth="1.4" />
+                    <circle cx="9" cy="11" r="1.1" fill="currentColor" />
+                    <circle cx="15" cy="11" r="1.1" fill="currentColor" />
+                    <circle cx="19.5" cy="19" r="1" fill="currentColor" />
+                    <circle cx="21.5" cy="21.5" r="0.6" fill="currentColor" />
+                  </svg>
                 </span>
               </div>
 
