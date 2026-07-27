@@ -152,9 +152,9 @@ export default function HomePage() {
                   className="shrink-0 text-neutral-400 opacity-70 transition group-hover:opacity-100"
                 >
                   <svg
-                    width="26"
-                    height="18"
-                    viewBox="0 0 32 22"
+                    width="27"
+                    height="19"
+                    viewBox="0 -1 33 23"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     className="sm:h-6 sm:w-[38px]"
@@ -168,13 +168,26 @@ export default function HomePage() {
                     <circle cx="6.6" cy="12.6" r="1.05" fill="currentColor" />
                     <circle cx="11.4" cy="12.6" r="1.05" fill="currentColor" />
 
-                    {/* thought trail + cloud */}
-                    <circle cx="19" cy="7.4" r="0.8" fill="currentColor" opacity="0.55" />
-                    <circle cx="21.3" cy="5.1" r="1.1" fill="currentColor" opacity="0.7" />
-                    <circle cx="25.6" cy="3" r="2.2" fill="currentColor" opacity="0.85" />
-                    <circle cx="23.3" cy="4.3" r="1.6" fill="currentColor" opacity="0.85" />
-                    <circle cx="27.6" cy="4.5" r="1.5" fill="currentColor" opacity="0.85" />
-                    <circle cx="25.4" cy="5.5" r="1.4" fill="currentColor" opacity="0.85" />
+                    {/* thought trail + scalloped thought bubble */}
+                    <circle cx="18.6" cy="8.4" r="0.7" fill="currentColor" />
+                    <circle cx="20.4" cy="6.5" r="1" fill="currentColor" />
+                    <path
+                      stroke="currentColor"
+                      strokeWidth="1.3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M22.5,6.2
+                         C21.3,5.6 21.1,4 22.3,3.2
+                         C22.1,1.7 23.4,0.5 24.9,0.7
+                         C25.4,-0.5 27.1,-0.8 28.1,0.2
+                         C29.5,-0.3 31,0.7 31,2.1
+                         C32.1,2.5 32.3,4 31.4,4.8
+                         C31.9,6.1 30.9,7.4 29.5,7.4
+                         C29.1,8.3 27.9,8.7 27,8.1
+                         C26.2,8.8 24.9,8.6 24.4,7.7
+                         C23.6,8 22.7,7.4 22.5,6.2
+                         Z"
+                    />
                   </svg>
                 </span>
               </div>
