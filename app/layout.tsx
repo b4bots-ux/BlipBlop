@@ -41,6 +41,9 @@ export default function RootLayout({
                   <a href="/agents" className="hover:text-white">
                     Agents
                   </a>
+                  <a href="/community" className="hover:text-white">
+                    Community
+                  </a>
                   <a href="/submit" className="hover:text-white">
                     Submit
                   </a>
