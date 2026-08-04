@@ -86,6 +86,10 @@ export default function BotsPage() {
     <div className="mx-auto max-w-5xl px-6 py-12 min-h-screen bg-white text-gray-900">
       {/* Header */}
       <div className="mb-10">
+        <a href="/" className="mb-6 inline-flex items-center gap-3">
+          <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-blue-500 to-emerald-400 shadow-sm" />
+          <span className="text-lg font-semibold tracking-tight">B4Bots</span>
+        </a>
         <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-100 px-4 py-1 text-sm text-gray-600 mb-4">
           <span>🤖</span> Bots & Automation
         </div>
