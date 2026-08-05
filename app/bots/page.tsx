@@ -1,4 +1,8 @@
+"use client";
+
 // app/bots/page.tsx
+import { useMemo, useState } from "react";
+
 type Bot = {
   name: string;
   description: string;
@@ -58,30 +62,46 @@ const automationBots: Bot[] = [
   },
 ];
 
-function BotCard({ bot }: { bot: Bot }) {
+function BotRow({ bot }: { bot: Bot }) {
   return (
-    <div className="flex flex-col rounded-3xl border border-gray-200 bg-white p-6 transition hover:border-gray-300 hover:shadow-md">
+    <div className="flex items-center gap-4 px-4 py-4 transition hover:bg-gray-50 sm:px-5">
       <div
-        className={`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl text-3xl ${bot.iconBg}`}
+        className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl text-xl ${bot.iconBg}`}
       >
         {bot.emoji}
       </div>
-      <h3 className="font-semibold text-xl">{bot.name}</h3>
-      <p className="mt-2 flex-1 text-gray-600 leading-snug">{bot.description}</p>
+      <div className="min-w-0 flex-1">
+        <h3 className="font-semibold text-gray-900">{bot.name}</h3>
+        <p className="mt-0.5 line-clamp-1 text-sm text-gray-500 sm:line-clamp-none">
+          {bot.description}
+        </p>
+      </div>
       <a
         href={bot.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-black px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-800"
+        className="flex-shrink-0 inline-flex items-center gap-1 rounded-full border border-gray-200 px-3.5 py-1.5 text-xs font-semibold text-gray-700 transition hover:border-gray-300 hover:bg-gray-100"
       >
         Visit
-        <span aria-hidden className="text-xs">↗</span>
+        <span aria-hidden className="text-[10px]">↗</span>
       </a>
     </div>
   );
 }
 
 export default function BotsPage() {
+  const [query, setQuery] = useState("");
+
+  const filteredBots = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return automationBots;
+    return automationBots.filter(
+      (bot) =>
+        bot.name.toLowerCase().includes(q) ||
+        bot.description.toLowerCase().includes(q)
+    );
+  }, [query]);
+
   return (
     <div className="mx-auto max-w-5xl px-6 py-12 min-h-screen bg-white text-gray-900">
       {/* Header */}
@@ -101,15 +121,41 @@ export default function BotsPage() {
 
       {/* Automation Tools */}
       <div className="mb-12">
-        <h2 className="mb-6 text-2xl font-semibold">Automation Tools</h2>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {automationBots.map((bot) => (
-            <BotCard key={bot.name} bot={bot} />
-          ))}
+        <div className="mb-4 flex items-center justify-between gap-4">
+          <h2 className="text-2xl font-semibold">Automation Tools</h2>
+          <span className="text-sm text-gray-400">
+            {filteredBots.length} bot{filteredBots.length === 1 ? "" : "s"}
+          </span>
+        </div>
+
+        <div className="relative mb-6">
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+          >
+            🔍
+          </span>
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Filter bots by name or keyword"
+            className="w-full rounded-full border border-gray-200 bg-gray-50 py-3 pl-11 pr-4 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-gray-100"
+          />
+        </div>
+
+        <div className="divide-y divide-gray-100 rounded-2xl border border-gray-200">
+          {filteredBots.length > 0 ? (
+            filteredBots.map((bot) => <BotRow key={bot.name} bot={bot} />)
+          ) : (
+            <p className="px-5 py-8 text-center text-sm text-gray-400">
+              No bots match &ldquo;{query}&rdquo;.
+            </p>
+          )}
         </div>
       </div>
 
-      {/* Physical Robots - internal page, styled distinctly from the external cards above */}
+      {/* Physical Robots - internal page, styled distinctly from the list above */}
       <div>
         <h2 className="mb-6 text-2xl font-semibold">Physical Robots</h2>
         <a
