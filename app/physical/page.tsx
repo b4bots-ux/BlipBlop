@@ -117,15 +117,6 @@ const developmentRobots: Robot[] = [
   },
 ];
 
-const categories = [
-  "Humanoids",
-  "Robot Dogs",
-  "Warehouse",
-  "Home Robots",
-  "Industrial",
-  "Autonomous Vehicles",
-];
-
 function StatusBadge({ status }: { status: Robot["status"] }) {
   const styles: Record<Robot["status"], string> = {
     "Ships now": "border-emerald-400/30 bg-emerald-400/10 text-emerald-200",
@@ -252,22 +243,9 @@ export default function PhysicalPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-12 md:px-8">
-        <div className="flex flex-wrap gap-3">
-          {categories.map((category) => (
-            <button
-              key={category}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70 transition hover:bg-white/10 hover:text-white"
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-      </section>
-
       <section
         id="featured"
-        className="mx-auto max-w-7xl px-6 pb-8 md:px-8"
+        className="mx-auto max-w-7xl px-6 pt-12 pb-8 md:px-8"
       >
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
