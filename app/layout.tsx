@@ -32,7 +32,9 @@ export default function RootLayout({
           <footer className="bg-black text-white">
             <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
               <div className="flex flex-col gap-6">
-                <h3 className="text-xl font-semibold">B4Bots</h3>
+                <a href="/" className="w-fit text-xl font-semibold hover:text-neutral-300">
+                  B4Bots
+                </a>
 
                 <div className="flex flex-col gap-2 text-sm text-neutral-300 sm:flex-row sm:gap-6">
                   <a href="/bots" className="hover:text-white">
