@@ -162,7 +162,7 @@ export default function BotsPage() {
           href="/physical"
           className="group flex items-center gap-5 rounded-3xl border border-gray-200 bg-gradient-to-br from-gray-50 to-white p-6 transition hover:border-gray-300 hover:shadow-md"
         >
-          <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 text-4xl text-white">
+          <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-pink-500 text-4xl text-white">
             🤖
           </div>
           <div className="flex-1">

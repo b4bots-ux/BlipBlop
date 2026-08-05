@@ -117,15 +117,6 @@ const developmentRobots: Robot[] = [
   },
 ];
 
-const categories = [
-  "Humanoids",
-  "Robot Dogs",
-  "Warehouse",
-  "Home Robots",
-  "Industrial",
-  "Autonomous Vehicles",
-];
-
 function StatusBadge({ status }: { status: Robot["status"] }) {
   const styles: Record<Robot["status"], string> = {
     "Ships now": "border-emerald-400/30 bg-emerald-400/10 text-emerald-200",
@@ -252,22 +243,9 @@ export default function PhysicalPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-12 md:px-8">
-        <div className="flex flex-wrap gap-3">
-          {categories.map((category) => (
-            <button
-              key={category}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70 transition hover:bg-white/10 hover:text-white"
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-      </section>
-
       <section
         id="featured"
-        className="mx-auto max-w-7xl px-6 pb-8 md:px-8"
+        className="mx-auto max-w-7xl px-6 pt-12 pb-8 md:px-8"
       >
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
@@ -290,39 +268,6 @@ export default function PhysicalPage() {
           {featuredRobots.map((robot) => (
             <RobotCard key={robot.name} robot={robot} />
           ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-16 md:px-8">
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8">
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <div>
-              <p className="text-sm uppercase tracking-[0.22em] text-white/45">
-                Categories
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold md:text-3xl">
-                Browse by robot type
-              </h2>
-            </div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {categories.map((category) => (
-              <Link
-                key={category}
-                href="#featured"
-                className="rounded-2xl border border-white/10 bg-black/20 p-5 transition hover:border-white/20 hover:bg-black/30"
-              >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-medium">{category}</h3>
-                  <span className="text-white/35">→</span>
-                </div>
-                <p className="mt-2 text-sm leading-6 text-white/60">
-                  Explore listings, pricing, and deployment status.
-                </p>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 
