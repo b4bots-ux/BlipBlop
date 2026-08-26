@@ -4,7 +4,7 @@ export default function AgentsPage() {
       name: 'OpenClaw',
       description:
         'AI agent that can control apps, automate tasks, and operate like a digital assistant.',
-      href: 'https://github.com/openclaw/openclaw',
+      href: 'https://openclaw.ai',
     },
     {
       name: 'AutoGPT',
