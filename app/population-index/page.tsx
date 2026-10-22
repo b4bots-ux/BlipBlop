@@ -33,10 +33,9 @@ export default function PopulationIndexPage() {
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-600">
           The Bot Population Index (BPI) is a single 0–100 score that
-          summarizes the balance between human and bot activity across the
-          web at a given moment. A score near 0 means activity skews
-          human-heavy, a score near 100 means it skews bot-heavy, and 50 is an
-          even split.
+          summarizes the mix of human and bot activity across the web at a
+          given moment. A score near 0 means activity skews human-heavy, and
+          a score near 100 means it skews bot-heavy.
         </p>
 
         <div className="mt-10 rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">

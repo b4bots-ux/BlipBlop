@@ -120,7 +120,7 @@ export default function HomePage() {
 
               <p className="mt-6 max-w-3xl text-lg leading-8 text-neutral-600 sm:text-xl sm:leading-9">
                 Live counters for people, humanoid bots, and digital bots — an
-                index that summarizes the balance.
+                index that tracks the mix.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
