@@ -197,9 +197,6 @@ export default function HomePage() {
                   <div className="text-[clamp(2.1rem,8.5vw,5rem)] font-semibold leading-none tracking-tight text-[#111827]">
                     54.6 / 100
                   </div>
-                  <div className="mt-3 text-xl text-neutral-700 sm:text-4xl">
-                    Balanced
-                  </div>
                 </div>
 
                 <div className="shrink-0 text-right text-lg leading-tight text-neutral-500 sm:text-3xl">
@@ -212,9 +209,8 @@ export default function HomePage() {
                   <div className="h-4 w-[54.6%] rounded-full bg-gradient-to-r from-emerald-400 via-sky-400 to-indigo-500 sm:h-5" />
                 </div>
 
-                <div className="mt-4 grid grid-cols-3 text-center text-[11px] text-neutral-500 sm:text-2xl">
+                <div className="mt-4 flex justify-between text-center text-[11px] text-neutral-500 sm:text-2xl">
                   <div>Bot-heavy</div>
-                  <div>Balanced</div>
                   <div>Human-heavy</div>
                 </div>
               </div>
