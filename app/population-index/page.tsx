@@ -48,8 +48,8 @@ export default function PopulationIndexPage() {
             estimated bot activity, autonomous agent activity, and active
             internet users &mdash; into a weighted ratio of bot-driven
             activity to total activity. The result is normalized to a 0–100
-            scale and labeled Bot-heavy, Balanced, or Human-heavy depending on
-            where it falls.
+            scale, running from Bot-heavy to Human-heavy depending on where
+            it falls.
           </p>
         </div>
 
