@@ -24,14 +24,14 @@ const featuredRobots: Robot[] = [
     href: "/physical/unitree-g1",
   },
   {
-    name: "Figure 02",
+    name: "Figure 03",
     company: "Figure",
     category: "Humanoid",
     status: "Enterprise",
     price: "Contact",
-    description: "Enterprise humanoid focused on logistics and industrial work.",
-    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/figure02.jpeg?width=900&quality=80",
-    href: "/physical/figure-02",
+    description: "Current-generation humanoid in production and deployed at BMW's Spartanburg plant.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/figure03.jpeg?width=900&quality=80",
+    href: "/physical/figure-03",
   },
   {
     name: "Spot",
@@ -44,12 +44,22 @@ const featuredRobots: Robot[] = [
     href: "/physical/spot",
   },
   {
+    name: "Atlas",
+    company: "Boston Dynamics",
+    category: "Humanoid",
+    status: "Enterprise",
+    price: "Contact",
+    description: "All-electric production humanoid entering factory deployments with Hyundai.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/atlas.jpeg?width=900&quality=80",
+    href: "/physical/atlas",
+  },
+  {
     name: "Digit",
     company: "Agility Robotics",
     category: "Warehouse",
-    status: "In development",
+    status: "Enterprise",
     price: "Contact",
-    description: "Biped robot designed for logistics and repetitive warehouse tasks.",
+    description: "Biped warehouse robot deployed at Amazon and GXO fulfillment centers.",
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/digit.jpeg?width=900&quality=80",
     href: "/physical/digit",
   },
@@ -91,20 +101,10 @@ const developmentRobots: Robot[] = [
     company: "Tesla",
     category: "Humanoid",
     status: "In development",
-    price: "TBD",
-    description: "Internal deployment focus with long-term public ambitions.",
+    price: "Target ~$20K–$30K",
+    description: "Gen 3 humanoid in mass production at Tesla's Fremont factory; external sales expected late 2026.",
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/optimus.jpeg?width=900&quality=80",
     href: "/physical/optimus",
-  },
-  {
-    name: "Atlas",
-    company: "Boston Dynamics",
-    category: "Humanoid",
-    status: "In development",
-    price: "TBD",
-    description: "High-performance humanoid platform with selective partner access.",
-    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/atlas.jpeg?width=900&quality=80",
-    href: "/physical/atlas",
   },
   {
     name: "Apollo",
@@ -229,7 +229,7 @@ export default function PhysicalPage() {
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Humanoids</p>
-                <p className="mt-3 text-3xl font-semibold">5</p>
+                <p className="mt-3 text-3xl font-semibold">6</p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Available now</p>
