@@ -1,22 +1,58 @@
 export default function AgentsPage() {
   const agents = [
     {
-      name: 'OpenClaw',
+      name: 'ChatGPT Agent',
       description:
-        'AI agent that can control apps, automate tasks, and operate like a digital assistant.',
-      href: 'https://openclaw.ai',
+        "OpenAI's agent mode browses the web, operates a virtual computer, and completes multi-step tasks — research, bookings, and spreadsheets — for you.",
+      href: 'https://chatgpt.com',
+    },
+    {
+      name: 'Claude',
+      description:
+        "Anthropic's assistant and its Claude Code agent plan, reason, and write or fix code across whole projects with careful, supervised autonomy.",
+      href: 'https://claude.ai',
+    },
+    {
+      name: 'Manus',
+      description:
+        'General-purpose autonomous agent: give it a goal and it plans, browses, codes, and delivers finished work from its own cloud computer.',
+      href: 'https://manus.im',
+    },
+    {
+      name: 'Gemini',
+      description:
+        "Google's assistant with Deep Research and agentic features built in, connected across Search, Gmail, Docs, and the rest of Google Workspace.",
+      href: 'https://gemini.google.com',
+    },
+    {
+      name: 'Devin',
+      description:
+        'Autonomous software engineer from Cognition. Assign it a ticket and it writes, tests, and debugs the code, then opens a pull request for review.',
+      href: 'https://devin.ai',
+    },
+    {
+      name: 'Cursor',
+      description:
+        'AI code editor with agents that understand your whole codebase, make multi-file changes, and run commands while you direct the work.',
+      href: 'https://cursor.com',
+    },
+    {
+      name: 'Lindy',
+      description:
+        'No-code builder for AI employees that handle email, scheduling, CRM updates, and sales workflows for small businesses and ops teams.',
+      href: 'https://www.lindy.ai',
+    },
+    {
+      name: 'Perplexity',
+      description:
+        'Answer engine with agentic research: it searches the live web step by step and returns sourced answers, summaries, and comparisons.',
+      href: 'https://www.perplexity.ai',
     },
     {
       name: 'AutoGPT',
       description:
-        'Autonomous agent that breaks goals into steps and executes them with minimal input.',
+        'The open-source original. A self-hosted autonomous agent that breaks goals into steps and executes them — full control, no vendor lock-in.',
       href: 'https://github.com/Significant-Gravitas/AutoGPT',
-    },
-    {
-      name: 'Perplexity Copilot',
-      description:
-        'Research-focused AI assistant that explores topics step by step and refines answers.',
-      href: 'https://www.perplexity.ai',
     },
   ]
 
