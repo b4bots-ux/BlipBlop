@@ -50,6 +50,12 @@ export default function RootLayout({
                   <a href="/submit" className="hover:text-white">
                     Submit
                   </a>
+                  <a href="/privacy" className="hover:text-white">
+                    Privacy
+                  </a>
+                  <a href="/terms" className="hover:text-white">
+                    Terms
+                  </a>
                 </div>
 
                 <div className="flex flex-col gap-1 text-sm">
