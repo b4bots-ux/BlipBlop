@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RobotImage from "./robot-image";
 
 type Robot = {
   name: string;
@@ -141,11 +142,11 @@ function RobotCard({ robot }: { robot: Robot }) {
       className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition hover:border-white/20 hover:bg-white/[0.07]"
     >
       <div className="aspect-[4/3] w-full overflow-hidden bg-black/20">
-        <img
+        <RobotImage
           src={robot.image}
-          alt={robot.name}
+          name={robot.name}
+          company={robot.company}
           className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-          loading="lazy"
         />
       </div>
 
