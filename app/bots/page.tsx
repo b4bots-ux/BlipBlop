@@ -23,10 +23,26 @@ const automationBots: Bot[] = [
   {
     name: "Zapier",
     description:
-      "Automate your entire business without code. Connect your website, payments, email, CRM, and thousands of apps so new orders, leads, and updates flow automatically while you focus on growth.",
+      "Automate your entire business without code. Connect your website, payments, email, CRM, and 8,000+ apps — now with AI agents that can handle multi-step work for you while you focus on growth.",
     emoji: "⚡",
     iconBg: "bg-amber-100",
     href: "https://zapier.com/",
+  },
+  {
+    name: "Make",
+    description:
+      "Design powerful automations visually. Make connects your apps and services with drag-and-drop scenarios that can branch, filter, and process data — a favorite for teams that outgrow simple triggers.",
+    emoji: "🧩",
+    iconBg: "bg-indigo-100",
+    href: "https://www.make.com/",
+  },
+  {
+    name: "n8n",
+    description:
+      "The automation platform built for the AI era. Create workflows and AI agents that connect your tools, your data, and large language models — self-host it for free or use the cloud version.",
+    emoji: "🔗",
+    iconBg: "bg-pink-100",
+    href: "https://n8n.io/",
   },
   {
     name: "3Commas",
@@ -37,28 +53,20 @@ const automationBots: Bot[] = [
     href: "https://3commas.io/",
   },
   {
-    name: "Slack",
-    description:
-      "Keep your team aligned and productive. Centralize conversations, automate workflows, and get AI-powered summaries so nothing falls through the cracks.",
-    emoji: "💬",
-    iconBg: "bg-purple-100",
-    href: "https://slack.com/",
-  },
-  {
     name: "Intercom",
     description:
-      "Resolve customer questions instantly with an AI support agent. Deflect routine tickets, escalate the tricky ones to your team, and keep every conversation in one inbox.",
+      "Resolve customer questions instantly with Fin, Intercom's AI support agent. It answers from your help center, handles routine tickets end to end, and escalates the tricky ones to your team.",
     emoji: "🎧",
     iconBg: "bg-sky-100",
     href: "https://www.intercom.com/",
   },
   {
-    name: "AirTrack",
+    name: "Manychat",
     description:
-      "Never overpay for flights again. Get real-time price tracking and AI-powered predictions so you know exactly when to book for the lowest fares.",
-    emoji: "✈️",
-    iconBg: "bg-rose-100",
-    href: "https://airtrackbot.com/",
+      "Turn conversations into customers. Manychat automates Instagram, WhatsApp, and Messenger chats — answering questions, capturing leads, and sending offers while you sleep.",
+    emoji: "💬",
+    iconBg: "bg-teal-100",
+    href: "https://manychat.com/",
   },
 ];
 
