@@ -1,6 +1,7 @@
 // app/physical/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import Link from "next/link";
+import RobotImage from "../robot-image";
 
 type Robot = {
   name: string;
@@ -155,9 +156,10 @@ export default function RobotDetailPage({ params }: { params: { slug: string } }
 
         <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
           <div className="aspect-[16/9] w-full overflow-hidden bg-black/40 relative">
-            <img
+            <RobotImage
               src={robot.image}
-              alt={robot.name}
+              name={robot.name}
+              company={robot.company}
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70" />
