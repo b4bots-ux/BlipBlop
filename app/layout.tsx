@@ -56,6 +56,12 @@ export default function RootLayout({
                   <a href="/terms" className="hover:text-white">
                     Terms
                   </a>
+                  <a href="/press" className="hover:text-white">
+                    Press
+                  </a>
+                  <a href="/newsletter" className="hover:text-white">
+                    Newsletter
+                  </a>
                 </div>
 
                 <div className="flex flex-col gap-1 text-sm">
