@@ -32,7 +32,14 @@ export default async function CommunityPage() {
       </div>
 
       {error && (
-        <p className="text-red-600">Couldn&apos;t load submissions right now.</p>
+        <p className="text-gray-600">
+          Community submissions are temporarily unavailable. Please check back
+          soon — or{' '}
+          <a href="/submit" className="underline">
+            submit a listing
+          </a>{' '}
+          in the meantime.
+        </p>
       )}
 
       {!error && (!submissions || submissions.length === 0) && (

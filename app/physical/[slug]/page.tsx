@@ -1,6 +1,7 @@
 // app/physical/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import Link from "next/link";
+import RobotImage from "../robot-image";
 
 type Robot = {
   name: string;
@@ -26,14 +27,14 @@ const allRobots: Robot[] = [
     href: "/physical/unitree-g1",
   },
   {
-    name: "Figure 02",
+    name: "Figure 03",
     company: "Figure",
     category: "Humanoid",
     status: "Enterprise",
     price: "Contact",
-    description: "Enterprise humanoid focused on logistics and industrial work.",
-    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/figure02.jpeg?width=900&quality=80",
-    href: "/physical/figure-02",
+    description: "Current-generation humanoid in production and deployed at BMW's Spartanburg plant.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/figure03.jpeg?width=900&quality=80",
+    href: "/physical/figure-03",
   },
   {
     name: "Spot",
@@ -49,9 +50,9 @@ const allRobots: Robot[] = [
     name: "Digit",
     company: "Agility Robotics",
     category: "Warehouse",
-    status: "In development",
+    status: "Enterprise",
     price: "Contact",
-    description: "Biped robot designed for logistics and repetitive warehouse tasks.",
+    description: "Biped warehouse robot deployed at Amazon and GXO fulfillment centers.",
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/digit.jpeg?width=900&quality=80",
     href: "/physical/digit",
   },
@@ -80,8 +81,8 @@ const allRobots: Robot[] = [
     company: "Tesla",
     category: "Humanoid",
     status: "In development",
-    price: "TBD",
-    description: "Internal deployment focus with long-term public ambitions.",
+    price: "Target ~$20K–$30K",
+    description: "Gen 3 humanoid in mass production at Tesla's Fremont factory; external sales expected late 2026.",
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/optimus.jpeg?width=900&quality=80",
     href: "/physical/optimus",
   },
@@ -89,9 +90,9 @@ const allRobots: Robot[] = [
     name: "Atlas",
     company: "Boston Dynamics",
     category: "Humanoid",
-    status: "In development",
-    price: "TBD",
-    description: "High-performance humanoid platform with selective partner access.",
+    status: "Enterprise",
+    price: "Contact",
+    description: "All-electric production humanoid entering factory deployments with Hyundai.",
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/atlas.jpeg?width=900&quality=80",
     href: "/physical/atlas",
   },
@@ -123,7 +124,7 @@ function getExternalLink(robotName: string): string {
     "Unitree G1": "https://shop.unitree.com/products/unitree-g1",
     "Go2": "https://shop.unitree.com/products/unitree-go2",
     "NEO": "https://www.1x.tech/order",
-    "Figure 02": "https://www.figure.ai/",
+    "Figure 03": "https://www.figure.ai/",
     "Spot": "https://bostondynamics.com/spot-sales/",
     "Digit": "https://www.agilityrobotics.com/solutions",
     "Optimus": "https://www.tesla.com/optimus",
@@ -155,9 +156,10 @@ export default function RobotDetailPage({ params }: { params: { slug: string } }
 
         <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
           <div className="aspect-[16/9] w-full overflow-hidden bg-black/40 relative">
-            <img
+            <RobotImage
               src={robot.image}
-              alt={robot.name}
+              name={robot.name}
+              company={robot.company}
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70" />
