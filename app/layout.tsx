@@ -28,6 +28,37 @@ export default function RootLayout({
             <div className="absolute left-[18%] bottom-[-14%] h-[260px] w-[260px] rounded-full bg-indigo-800/20 blur-3xl sm:h-[360px] sm:w-[360px]" />
           </div>
 
+          <header className="sticky top-0 z-50 bg-black text-white shadow-md">
+            <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
+              <a
+                href="/"
+                className="shrink-0 text-lg font-semibold tracking-tight hover:text-neutral-300"
+              >
+                B4Bots
+              </a>
+              <nav className="flex flex-1 items-center gap-4 overflow-x-auto whitespace-nowrap text-sm text-neutral-300 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:justify-end sm:gap-6">
+                <a href="/physical" className="hover:text-white">
+                  Robots
+                </a>
+                <a href="/bots" className="hover:text-white">
+                  Bots
+                </a>
+                <a href="/agents" className="hover:text-white">
+                  Agents
+                </a>
+                <a href="/launches" className="hover:text-white">
+                  Launches
+                </a>
+                <a href="/community" className="hover:text-white">
+                  Community
+                </a>
+                <a href="/newsletter" className="hover:text-white">
+                  Newsletter
+                </a>
+              </nav>
+            </div>
+          </header>
+
           <main className="flex-1">{children}</main>
 
           <footer className="bg-black text-white">
@@ -38,6 +69,9 @@ export default function RootLayout({
                 </a>
 
                 <div className="flex flex-col gap-2 text-sm text-neutral-300 sm:flex-row sm:gap-6">
+                  <a href="/physical" className="hover:text-white">
+                    Robots
+                  </a>
                   <a href="/bots" className="hover:text-white">
                     Bots
                   </a>
