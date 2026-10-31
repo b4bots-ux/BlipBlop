@@ -136,6 +136,12 @@ export default function HomePage() {
                 >
                   Submit a listing
                 </a>
+                <a
+                  href="/launches"
+                  className="inline-flex items-center justify-center rounded-full border border-neutral-300/80 bg-white/70 px-8 py-4 text-lg font-medium text-neutral-700 transition hover:bg-white"
+                >
+                  Latest launches
+                </a>
               </div>
             </div>
 
