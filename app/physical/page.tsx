@@ -4,6 +4,7 @@ import RobotImage from "./robot-image";
 type Robot = {
   name: string;
   company: string;
+  country?: string;
   category: string;
   status: "Ships now" | "Pre-order" | "Enterprise" | "In development";
   price: string;
@@ -16,6 +17,7 @@ const featuredRobots: Robot[] = [
   {
     name: "Unitree G1",
     company: "Unitree",
+    country: "China",
     category: "Humanoid",
     status: "Ships now",
     price: "$17,990+",
@@ -26,6 +28,7 @@ const featuredRobots: Robot[] = [
   {
     name: "Figure 03",
     company: "Figure",
+    country: "USA",
     category: "Humanoid",
     status: "Enterprise",
     price: "Contact",
@@ -36,6 +39,7 @@ const featuredRobots: Robot[] = [
   {
     name: "Spot",
     company: "Boston Dynamics",
+    country: "USA",
     category: "Robot Dog",
     status: "Enterprise",
     price: "Contact",
@@ -46,6 +50,7 @@ const featuredRobots: Robot[] = [
   {
     name: "Atlas",
     company: "Boston Dynamics",
+    country: "USA",
     category: "Humanoid",
     status: "Enterprise",
     price: "Contact",
@@ -56,6 +61,7 @@ const featuredRobots: Robot[] = [
   {
     name: "Digit 5",
     company: "Agility Robotics",
+    country: "USA",
     category: "Warehouse",
     status: "Enterprise",
     price: "Contact",
@@ -66,6 +72,7 @@ const featuredRobots: Robot[] = [
   {
     name: "NEO",
     company: "1X",
+    country: "Norway",
     category: "Home",
     status: "Pre-order",
     price: "~$20,000",
@@ -76,6 +83,7 @@ const featuredRobots: Robot[] = [
   {
     name: "Go2",
     company: "Unitree",
+    country: "China",
     category: "Robot Dog",
     status: "Ships now",
     price: "$2,590+",
@@ -96,6 +104,7 @@ const featuredRobots: Robot[] = [
   {
     name: "Apollo 2",
     company: "Apptronik",
+    country: "USA",
     category: "Humanoid",
     status: "Enterprise",
     price: "RaaS",
@@ -106,6 +115,7 @@ const featuredRobots: Robot[] = [
   {
     name: "A2",
     company: "AGIBOT",
+    country: "China",
     category: "Humanoid",
     status: "Enterprise",
     price: "~$56K+",
@@ -116,6 +126,7 @@ const featuredRobots: Robot[] = [
   {
     name: "Walker S2",
     company: "UBTech",
+    country: "China",
     category: "Humanoid",
     status: "Enterprise",
     price: "Contact",
@@ -126,6 +137,7 @@ const featuredRobots: Robot[] = [
   {
     name: "H2",
     company: "Unitree",
+    country: "China",
     category: "Humanoid",
     status: "Ships now",
     price: "$29,900+",
@@ -136,6 +148,7 @@ const featuredRobots: Robot[] = [
   {
     name: "Phoenix",
     company: "Sanctuary AI",
+    country: "Canada",
     category: "Humanoid",
     status: "Enterprise",
     price: "Contact",
@@ -146,6 +159,7 @@ const featuredRobots: Robot[] = [
   {
     name: "Ameca",
     company: "Engineered Arts",
+    country: "UK",
     category: "Humanoid",
     status: "Ships now",
     price: "~$250K",
@@ -159,6 +173,7 @@ const developmentRobots: Robot[] = [
   {
     name: "Optimus",
     company: "Tesla",
+    country: "USA",
     category: "Humanoid",
     status: "In development",
     price: "Target ~$20K–$30K",
@@ -169,6 +184,7 @@ const developmentRobots: Robot[] = [
   {
     name: "IRON",
     company: "XPeng",
+    country: "China",
     category: "Humanoid",
     status: "In development",
     price: "TBA",
@@ -214,7 +230,7 @@ function RobotCard({ robot }: { robot: Robot }) {
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="text-xs uppercase tracking-[0.22em] text-white/45">
-              {robot.company}
+              {robot.company}{robot.country ? ` · ${robot.country}` : ""}
             </p>
             <h3 className="mt-1 text-lg font-semibold text-white">
               {robot.name}
