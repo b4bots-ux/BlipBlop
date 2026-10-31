@@ -22,7 +22,7 @@ export default function SignupForm() {
   if (state === "done") {
     return (
       <p className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-4 text-sm text-emerald-200">
-        You&apos;re in. The next digest lands in your inbox soon.
+        You&apos;re in. The next Brief lands in your inbox soon.
       </p>
     );
   }
