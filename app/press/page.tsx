@@ -39,7 +39,7 @@ export default function PressPage() {
             </div>
             <div className="rounded-2xl border border-gray-200 p-5">
               <p className="text-sm text-gray-500">Listings and counting</p>
-              <p className="mt-2 text-3xl font-semibold text-gray-900">26</p>
+              <p className="mt-2 text-3xl font-semibold text-gray-900">32</p>
               <p className="text-sm text-gray-500">Curated entries, growing</p>
             </div>
           </div>

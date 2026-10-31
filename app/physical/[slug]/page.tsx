@@ -6,6 +6,7 @@ import RobotImage from "../robot-image";
 type Robot = {
   name: string;
   company: string;
+  country?: string;
   category: string;
   status: "Ships now" | "Pre-order" | "Enterprise" | "In development";
   price: string;
@@ -19,6 +20,7 @@ const allRobots: Robot[] = [
   {
     name: "Unitree G1",
     company: "Unitree",
+    country: "China",
     category: "Humanoid",
     status: "Ships now",
     price: "$17,990+",
@@ -29,6 +31,7 @@ const allRobots: Robot[] = [
   {
     name: "Figure 03",
     company: "Figure",
+    country: "USA",
     category: "Humanoid",
     status: "Enterprise",
     price: "Contact",
@@ -39,6 +42,7 @@ const allRobots: Robot[] = [
   {
     name: "Spot",
     company: "Boston Dynamics",
+    country: "USA",
     category: "Robot Dog",
     status: "Enterprise",
     price: "Contact",
@@ -49,6 +53,7 @@ const allRobots: Robot[] = [
   {
     name: "Digit 5",
     company: "Agility Robotics",
+    country: "USA",
     category: "Warehouse",
     status: "Enterprise",
     price: "Contact",
@@ -59,6 +64,7 @@ const allRobots: Robot[] = [
   {
     name: "NEO",
     company: "1X",
+    country: "Norway",
     category: "Home",
     status: "Pre-order",
     price: "~$20,000",
@@ -69,6 +75,7 @@ const allRobots: Robot[] = [
   {
     name: "Go2",
     company: "Unitree",
+    country: "China",
     category: "Robot Dog",
     status: "Ships now",
     price: "$2,590+",
@@ -79,6 +86,7 @@ const allRobots: Robot[] = [
   {
     name: "Optimus",
     company: "Tesla",
+    country: "USA",
     category: "Humanoid",
     status: "In development",
     price: "Target ~$20K–$30K",
@@ -89,6 +97,7 @@ const allRobots: Robot[] = [
   {
     name: "Atlas",
     company: "Boston Dynamics",
+    country: "USA",
     category: "Humanoid",
     status: "Enterprise",
     price: "Contact",
@@ -99,6 +108,7 @@ const allRobots: Robot[] = [
   {
     name: "Apollo 2",
     company: "Apptronik",
+    country: "USA",
     category: "Humanoid",
     status: "Enterprise",
     price: "RaaS",
@@ -116,6 +126,72 @@ const allRobots: Robot[] = [
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/stark.jpeg?width=900&quality=80",
     href: "/physical/stark-scooter",
   },
+  {
+    name: "A2",
+    company: "AGIBOT",
+    country: "China",
+    category: "Humanoid",
+    status: "Enterprise",
+    price: "~$56K+",
+    description: "The world's top-shipping humanoid — 10,000+ units delivered, working reception, retail, and factory roles across China.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/agibot.jpeg?width=900&quality=80",
+    href: "/physical/agibot-a2",
+  },
+  {
+    name: "Walker S2",
+    company: "UBTech",
+    country: "China",
+    category: "Humanoid",
+    status: "Enterprise",
+    price: "Contact",
+    description: "Industrial humanoid in mass delivery to BYD, Geely, and Foxconn — swaps its own battery in 3 minutes for near-24/7 shifts.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/walker.jpeg?width=900&quality=80",
+    href: "/physical/walker-s2",
+  },
+  {
+    name: "H2",
+    company: "Unitree",
+    country: "China",
+    category: "Humanoid",
+    status: "Ships now",
+    price: "$29,900+",
+    description: "Unitree's full-size flagship humanoid — one of the only humanoids anyone can order online today, with a published price.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/h2.jpeg?width=900&quality=80",
+    href: "/physical/unitree-h2",
+  },
+  {
+    name: "Phoenix",
+    company: "Sanctuary AI",
+    country: "Canada",
+    category: "Humanoid",
+    status: "Enterprise",
+    price: "Contact",
+    description: "Canadian humanoid built around industry-leading dexterous hands; Gen 8 pilots at Magna and Canadian Tire stores.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/phoenix.jpeg?width=900&quality=80",
+    href: "/physical/phoenix",
+  },
+  {
+    name: "Ameca",
+    company: "Engineered Arts",
+    country: "UK",
+    category: "Humanoid",
+    status: "Ships now",
+    price: "~$250K",
+    description: "The world's most expressive social humanoid — a conversational robot installed at museums, universities, and events worldwide.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/ameca.jpeg?width=900&quality=80",
+    href: "/physical/ameca",
+  },
+  {
+    name: "IRON",
+    company: "XPeng",
+    country: "China",
+    category: "Humanoid",
+    status: "In development",
+    price: "TBA",
+    description: "EV maker XPeng's humanoid — first units rolled off its automated Guangzhou line in September 2026; mass production targeted for late 2026, sales in 2027.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/iron.jpeg?width=900&quality=80",
+    href: "/physical/xpeng-iron",
+  },
 ];
 
 // Official / purchase links (ready for affiliate links later)
@@ -131,6 +207,12 @@ function getExternalLink(robotName: string): string {
     "Atlas": "https://bostondynamics.com/",
     "Apollo 2": "https://apptronik.com/",
     "Stark Scooter": "https://starkvehicles.com",
+    "A2": "https://www.agibot.com/products/A2_Ultra",
+    "Walker S2": "https://www.ubtrobot.com/en/humanoid/products/walker-s2",
+    "H2": "https://www.unitree.com/H2",
+    "Phoenix": "https://sanctuary.ai/",
+    "Ameca": "https://www.engineeredarts.co.uk/",
+    "IRON": "https://www.xpeng.com/technology/ai_robot_iron",
   };
   return links[robotName] || "#";
 }
@@ -169,7 +251,7 @@ export default function RobotDetailPage({ params }: { params: { slug: string } }
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
               <div>
                 <p className="text-xs uppercase tracking-[0.22em] text-white/50">
-                  {robot.company}
+                  {robot.company}{robot.country ? ` · ${robot.country}` : ""}
                 </p>
                 <h1 className="mt-2 text-5xl md:text-6xl font-semibold tracking-tight">
                   {robot.name}
