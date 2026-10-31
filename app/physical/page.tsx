@@ -103,6 +103,56 @@ const featuredRobots: Robot[] = [
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/apollo.jpeg?width=900&quality=80", // Keep original
     href: "/physical/apollo",
   },
+  {
+    name: "A2",
+    company: "AGIBOT",
+    category: "Humanoid",
+    status: "Enterprise",
+    price: "~$56K+",
+    description: "The world's top-shipping humanoid — 10,000+ units delivered, working reception, retail, and factory roles across China.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/agibot.jpeg?width=900&quality=80",
+    href: "/physical/agibot-a2",
+  },
+  {
+    name: "Walker S2",
+    company: "UBTech",
+    category: "Humanoid",
+    status: "Enterprise",
+    price: "Contact",
+    description: "Industrial humanoid in mass delivery to BYD, Geely, and Foxconn — swaps its own battery in 3 minutes for near-24/7 shifts.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/walker.jpeg?width=900&quality=80",
+    href: "/physical/walker-s2",
+  },
+  {
+    name: "H2",
+    company: "Unitree",
+    category: "Humanoid",
+    status: "Ships now",
+    price: "$29,900+",
+    description: "Unitree's full-size flagship humanoid — one of the only humanoids anyone can order online today, with a published price.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/h2.jpeg?width=900&quality=80",
+    href: "/physical/unitree-h2",
+  },
+  {
+    name: "Phoenix",
+    company: "Sanctuary AI",
+    category: "Humanoid",
+    status: "Enterprise",
+    price: "Contact",
+    description: "Canadian humanoid built around industry-leading dexterous hands; Gen 8 pilots at Magna and Canadian Tire stores.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/phoenix.jpeg?width=900&quality=80",
+    href: "/physical/phoenix",
+  },
+  {
+    name: "Ameca",
+    company: "Engineered Arts",
+    category: "Humanoid",
+    status: "Ships now",
+    price: "~$250K",
+    description: "The world's most expressive social humanoid — a conversational robot installed at museums, universities, and events worldwide.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/ameca.jpeg?width=900&quality=80",
+    href: "/physical/ameca",
+  },
 ];
 
 const developmentRobots: Robot[] = [
@@ -115,6 +165,16 @@ const developmentRobots: Robot[] = [
     description: "Gen 3 in initial production at Tesla's Fremont factory; first units stay in-house for training, with external sales not expected before late 2027.",
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/optimus.jpeg?width=900&quality=80",
     href: "/physical/optimus",
+  },
+  {
+    name: "IRON",
+    company: "XPeng",
+    category: "Humanoid",
+    status: "In development",
+    price: "TBA",
+    description: "EV maker XPeng's humanoid — first units rolled off its automated Guangzhou line in September 2026; mass production targeted for late 2026, sales in 2027.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/iron.jpeg?width=900&quality=80",
+    href: "/physical/xpeng-iron",
   },
 ];
 
@@ -225,19 +285,19 @@ export default function PhysicalPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Robots tracked</p>
-                <p className="mt-3 text-3xl font-semibold">10</p>
+                <p className="mt-3 text-3xl font-semibold">16</p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Humanoids</p>
-                <p className="mt-3 text-3xl font-semibold">6</p>
+                <p className="mt-3 text-3xl font-semibold">12</p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Available now</p>
-                <p className="mt-3 text-3xl font-semibold">2</p>
+                <p className="mt-3 text-3xl font-semibold">4</p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Manufacturers</p>
-                <p className="mt-3 text-3xl font-semibold">8</p>
+                <p className="mt-3 text-3xl font-semibold">13</p>
               </div>
             </div>
           </div>
