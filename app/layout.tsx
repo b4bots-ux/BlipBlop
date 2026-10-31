@@ -44,6 +44,9 @@ export default function RootLayout({
                   <a href="/agents" className="hover:text-white">
                     Agents
                   </a>
+                  <a href="/launches" className="hover:text-white">
+                    Launches
+                  </a>
                   <a href="/community" className="hover:text-white">
                     Community
                   </a>
