@@ -101,6 +101,49 @@ export default function HomePage() {
     []
   );
 
+  const featuredRobots = [
+    {
+      name: "Figure 03",
+      company: "Figure",
+      country: "USA",
+      status: "Enterprise",
+      price: "Contact",
+      image:
+        "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/figure03.jpeg?width=900&quality=80",
+      href: "/physical/figure-03",
+    },
+    {
+      name: "Atlas",
+      company: "Boston Dynamics",
+      country: "USA",
+      status: "Enterprise",
+      price: "Contact",
+      image:
+        "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/atlas.jpeg?width=900&quality=80",
+      href: "/physical/atlas",
+    },
+    {
+      name: "H2",
+      company: "Unitree",
+      country: "China",
+      status: "Ships now",
+      price: "$29,900+",
+      image:
+        "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/h2.jpeg?width=900&quality=80",
+      href: "/physical/unitree-h2",
+    },
+    {
+      name: "NEO",
+      company: "1X",
+      country: "Norway",
+      status: "Pre-order",
+      price: "~$20,000",
+      image:
+        "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/neo.jpeg?width=900&quality=80",
+      href: "/physical/neo",
+    },
+  ];
+
   return (
     <main className="min-h-screen text-black">
       <section className="relative">
@@ -125,16 +168,16 @@ export default function HomePage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href="/bots"
+                  href="/physical"
                   className="inline-flex items-center justify-center rounded-full bg-[#111827] px-8 py-4 text-lg font-medium text-white transition hover:opacity-95"
                 >
-                  Browse bots
+                  Browse robots
                 </a>
                 <a
-                  href="/submit"
+                  href="/bots"
                   className="inline-flex items-center justify-center rounded-full border border-neutral-300/80 bg-white/70 px-8 py-4 text-lg font-medium text-neutral-700 transition hover:bg-white"
                 >
-                  Submit a listing
+                  Browse bots
                 </a>
                 <a
                   href="/launches"
@@ -263,6 +306,135 @@ export default function HomePage() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[#05070d] text-white">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+          <div className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-neutral-300">
+            Physical robots
+          </div>
+
+          <h2 className="mt-6 max-w-2xl text-4xl font-semibold leading-[1.02] tracking-tight sm:text-5xl">
+            Meet the physical population.
+          </h2>
+
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-neutral-400">
+            Sixteen robots with photos, prices, and status — the part of the
+            index you can watch walk. Start here.
+          </p>
+
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+            {featuredRobots.map((robot) => (
+              <a
+                key={robot.name}
+                href={robot.href}
+                className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] transition hover:border-white/25"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-neutral-900">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={robot.image}
+                    alt={robot.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                </div>
+                <div className="p-4">
+                  <div className="text-base font-semibold sm:text-lg">
+                    {robot.name}
+                  </div>
+                  <div className="mt-0.5 text-sm text-neutral-400">
+                    {robot.company} · {robot.country}
+                  </div>
+                  <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
+                    <span className="rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-neutral-300">
+                      {robot.status}
+                    </span>
+                    <span className="text-neutral-400">{robot.price}</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <a
+              href="/physical"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-lg font-medium text-black transition hover:bg-neutral-200"
+            >
+              See all 16 robots
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-[#111827] sm:text-3xl">
+            The rest of the population
+          </h2>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            <a
+              href="/bots"
+              className="rounded-[1.6rem] border border-white/50 bg-white/40 p-6 shadow-[0_10px_40px_rgba(21,35,71,0.06)] backdrop-blur-md transition hover:bg-white/60"
+            >
+              <div className="text-lg font-semibold text-[#111827]">
+                Automation bots
+              </div>
+              <p className="mt-2 text-sm leading-6 text-neutral-600">
+                The software workforce — workflow, support, and trading bots,
+                counted and compared.
+              </p>
+              <div className="mt-4 text-sm font-medium text-[#111827]">
+                Browse bots →
+              </div>
+            </a>
+
+            <a
+              href="/agents"
+              className="rounded-[1.6rem] border border-white/50 bg-white/40 p-6 shadow-[0_10px_40px_rgba(21,35,71,0.06)] backdrop-blur-md transition hover:bg-white/60"
+            >
+              <div className="text-lg font-semibold text-[#111827]">
+                AI agents
+              </div>
+              <p className="mt-2 text-sm leading-6 text-neutral-600">
+                Autonomous agents that browse, code, research, and sell —
+                the fastest-growing slice of the index.
+              </p>
+              <div className="mt-4 text-sm font-medium text-[#111827]">
+                Browse agents →
+              </div>
+            </a>
+
+            <a
+              href="/launches"
+              className="rounded-[1.6rem] border border-white/50 bg-white/40 p-6 shadow-[0_10px_40px_rgba(21,35,71,0.06)] backdrop-blur-md transition hover:bg-white/60"
+            >
+              <div className="text-lg font-semibold text-[#111827]">
+                Launches
+              </div>
+              <p className="mt-2 text-sm leading-6 text-neutral-600">
+                Every new bot that lands — robots, agents, and software —
+                dated, sourced, and upvoted.
+              </p>
+              <div className="mt-4 text-sm font-medium text-[#111827]">
+                See the feed →
+              </div>
+            </a>
+          </div>
+
+          <p className="mt-8 text-sm text-neutral-600">
+            Built something that belongs in the index?{" "}
+            <a href="/submit" className="font-medium text-[#111827] underline">
+              Submit a listing
+            </a>
+            .
+          </p>
         </div>
       </section>
     </main>
