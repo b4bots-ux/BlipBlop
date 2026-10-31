@@ -54,12 +54,12 @@ const featuredRobots: Robot[] = [
     href: "/physical/atlas",
   },
   {
-    name: "Digit",
+    name: "Digit 5",
     company: "Agility Robotics",
     category: "Warehouse",
     status: "Enterprise",
     price: "Contact",
-    description: "Biped warehouse robot deployed at Amazon and GXO fulfillment centers.",
+    description: "Digit 5, unveiled September 2026 with $300M+ in customer orders; early access begins H1 2027, building on Digit deployments at Amazon and GXO.",
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/digit.jpeg?width=900&quality=80",
     href: "/physical/digit",
   },
@@ -93,6 +93,16 @@ const featuredRobots: Robot[] = [
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/stark.jpeg?width=900&quality=80",
     href: "/physical/stark-scooter",
   },
+  {
+    name: "Apollo 2",
+    company: "Apptronik",
+    category: "Humanoid",
+    status: "Enterprise",
+    price: "RaaS",
+    description: "Second-generation humanoid in pilot deployments with Mercedes-Benz, GXO, and Jabil, developed with Google DeepMind's robotics models.",
+    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/apollo.jpeg?width=900&quality=80", // Keep original
+    href: "/physical/apollo",
+  },
 ];
 
 const developmentRobots: Robot[] = [
@@ -102,19 +112,9 @@ const developmentRobots: Robot[] = [
     category: "Humanoid",
     status: "In development",
     price: "Target ~$20K–$30K",
-    description: "Gen 3 humanoid in mass production at Tesla's Fremont factory; external sales expected late 2026.",
+    description: "Gen 3 in initial production at Tesla's Fremont factory; first units stay in-house for training, with external sales not expected before late 2027.",
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/optimus.jpeg?width=900&quality=80",
     href: "/physical/optimus",
-  },
-  {
-    name: "Apollo",
-    company: "Apptronik",
-    category: "Humanoid",
-    status: "In development",
-    price: "RaaS",
-    description: "Humanoid built around enterprise deployment and service models.",
-    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/apollo.jpeg?width=900&quality=80", // Keep original
-    href: "/physical/apollo",
   },
 ];
 
