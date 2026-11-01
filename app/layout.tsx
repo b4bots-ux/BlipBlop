@@ -3,8 +3,29 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
-  title: "B4Bots",
-  description: "Bot population, at a glance.",
+  metadataBase: new URL("https://www.b4bots.com"),
+  title: {
+    default: "B4Bots — Bot Population Index: Robots, AI Agents & Bots, Counted",
+    template: "%s | B4Bots",
+  },
+  description:
+    "B4Bots tracks the bot population: physical robots with prices, AI agents, automation bots, and every launch that matters — dated, sourced, and counted in the Bot Population Index (BPI).",
+  openGraph: {
+    type: "website",
+    siteName: "B4Bots",
+    locale: "en_US",
+    url: "https://www.b4bots.com",
+    title: "B4Bots — Bot Population Index",
+    description:
+      "Robots, AI agents, and bots — counted. Physical robots with photos and prices, a weekly launch feed, and the Bot Population Index.",
+  },
+  twitter: {
+    card: "summary",
+    title: "B4Bots — Bot Population Index",
+    description:
+      "Robots, AI agents, and bots — counted. Physical robots with photos and prices, a weekly launch feed, and the Bot Population Index.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

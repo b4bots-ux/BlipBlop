@@ -1,4 +1,12 @@
 import SignupForm from './signup-form'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'The B4Bots Brief — One Monthly Email on Robots, Agents & Bots',
+  description:
+    'The B4Bots Brief: one short email a month — the launches that mattered and how the Bot Population Index moved. Read the latest issue and subscribe free.',
+  alternates: { canonical: '/newsletter' },
+}
 
 const briefItems = [
   {

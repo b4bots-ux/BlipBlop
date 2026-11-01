@@ -1,6 +1,7 @@
 // app/physical/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import Link from "next/link";
+import type { Metadata } from "next";
 import RobotImage from "../robot-image";
 
 type Robot = {
@@ -217,6 +218,37 @@ function getExternalLink(robotName: string): string {
   return links[robotName] || "#";
 }
 
+export function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Metadata {
+  const robot = allRobots.find((r) => r.href === `/physical/${params.slug}`);
+  if (!robot) return {};
+  const priceText =
+    robot.price === "Contact" ? "price on request" : `priced at ${robot.price}`;
+  return {
+    title: `${robot.name} — ${robot.company} ${robot.category} Robot: Price & Status`,
+    description: `${robot.description} ${robot.name} by ${robot.company}${
+      robot.country ? ` (${robot.country})` : ""
+    } — ${robot.status.toLowerCase()}, ${priceText}. Photos, details, and official links on B4Bots.`,
+    alternates: { canonical: robot.href },
+    openGraph: {
+      title: `${robot.name} — ${robot.company} ${robot.category} Robot`,
+      description: robot.description,
+      url: `https://www.b4bots.com${robot.href}`,
+      images: [{ url: robot.image }],
+    },
+  };
+}
+
+function parsePrice(price: string): number | null {
+  const k = price.match(/\$([\d.]+)K/i);
+  if (k) return Math.round(parseFloat(k[1]) * 1000);
+  const m = price.replace(/,/g, "").match(/\$(\d+(?:\.\d+)?)/);
+  return m ? parseFloat(m[1]) : null;
+}
+
 export default function RobotDetailPage({ params }: { params: { slug: string } }) {
   const robot = allRobots.find((r) => r.href === `/physical/${params.slug}`);
 
@@ -226,8 +258,37 @@ export default function RobotDetailPage({ params }: { params: { slug: string } }
 
   const externalUrl = getExternalLink(robot.name);
 
+  const numericPrice = parsePrice(robot.price);
+  const productJsonLd: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: robot.name,
+    image: robot.image,
+    description: robot.description,
+    brand: { "@type": "Brand", name: robot.company },
+    category: robot.category,
+    url: `https://www.b4bots.com${robot.href}`,
+  };
+  if (numericPrice !== null) {
+    productJsonLd.offers = {
+      "@type": "Offer",
+      url: `https://www.b4bots.com${robot.href}`,
+      priceCurrency: "USD",
+      price: numericPrice,
+      ...(robot.status === "Ships now"
+        ? { availability: "https://schema.org/InStock" }
+        : robot.status === "Pre-order"
+          ? { availability: "https://schema.org/PreOrder" }
+          : {}),
+    };
+  }
+
   return (
     <main className="min-h-screen bg-[#06070a] text-white pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <div className="mx-auto max-w-5xl px-6 pt-12 md:px-8">
         <Link
           href="/physical"
