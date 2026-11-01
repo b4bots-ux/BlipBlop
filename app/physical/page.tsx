@@ -1,5 +1,19 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import RobotImage from "./robot-image";
+
+export const metadata: Metadata = {
+  title: "Physical Robots — Humanoid, Warehouse & Home Robots with Prices",
+  description:
+    "Browse 16 physical robots — humanoids, robot dogs, warehouse systems, and home robots — with photos, prices, availability, and makers by country. Figure 03, Atlas, Unitree H2, NEO, Digit 5 and more, tracked in one index.",
+  alternates: { canonical: "/physical" },
+  openGraph: {
+    title: "Physical Robots — Humanoid, Warehouse & Home Robots with Prices",
+    description:
+      "16 physical robots with photos, prices, and availability — humanoids, robot dogs, warehouse and home robots, counted in one index.",
+    url: "https://www.b4bots.com/physical",
+  },
+};
 
 type Robot = {
   name: string;
@@ -258,8 +272,26 @@ function RobotCard({ robot }: { robot: Robot }) {
 }
 
 export default function PhysicalPage() {
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Physical Robots — B4Bots Index",
+    itemListElement: [...featuredRobots, ...developmentRobots].map(
+      (robot, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: robot.name,
+        url: `https://www.b4bots.com${robot.href}`,
+      })
+    ),
+  };
+
   return (
     <main className="min-h-screen bg-[#06070a] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
       <section className="relative overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(95,140,255,0.16),transparent_28%),radial-gradient(circle_at_top_right,rgba(0,255,170,0.09),transparent_20%)]" />
         <div className="relative mx-auto max-w-7xl px-6 py-20 md:px-8 md:py-28">

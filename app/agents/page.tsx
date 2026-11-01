@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AI Agents — Autonomous Agents for Browsing, Coding, Research & Sales",
+  description:
+    "The AI agents worth knowing — ChatGPT Agent, Claude, Manus, Gemini, Devin, Cursor and more — what each one does, who makes it, and where to get it. Counted in the B4Bots index.",
+  alternates: { canonical: "/agents" },
+};
+
 export default function AgentsPage() {
   const agents = [
     {

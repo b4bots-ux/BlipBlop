@@ -1,4 +1,12 @@
 import { supabase } from '../../lib/supabase'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Community Submissions — Bots & Tools Submitted by Readers',
+  description:
+    'Bots, agents, and tools submitted by the B4Bots community and approved into the index. Built something that belongs here? Submit it.',
+  alternates: { canonical: '/community' },
+}
 
 export const dynamic = 'force-dynamic'
 

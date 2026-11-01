@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Press & Media — B4Bots and the Bot Population Index",
+  description:
+    "Covering the growth of the bot population? What B4Bots tracks, the Bot Population Index (BPI) numbers behind it, brand facts, and how to reach us.",
+  alternates: { canonical: "/press" },
+};
+
 export default function PressPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-12 min-h-screen bg-white text-gray-900">
