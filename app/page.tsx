@@ -366,7 +366,7 @@ export default function HomePage() {
               href="/physical"
               className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-lg font-medium text-black transition hover:bg-neutral-200"
             >
-              See all 16 robots
+              See all 15 robots
             </a>
           </div>
         </div>
@@ -378,7 +378,23 @@ export default function HomePage() {
             The rest of the population
           </h2>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <a
+              href="/vehicles"
+              className="rounded-[1.6rem] border border-white/50 bg-white/40 p-6 shadow-[0_10px_40px_rgba(21,35,71,0.06)] backdrop-blur-md transition hover:bg-white/60"
+            >
+              <div className="text-lg font-semibold text-[#111827]">
+                Autonomous vehicles
+              </div>
+              <p className="mt-2 text-sm leading-6 text-neutral-600">
+                Robotaxis and driverless vehicles — nobody at the wheel,
+                counted like the bots they are.
+              </p>
+              <div className="mt-4 text-sm font-medium text-[#111827]">
+                Browse vehicles →
+              </div>
+            </a>
+
             <a
               href="/bots"
               className="rounded-[1.6rem] border border-white/50 bg-white/40 p-6 shadow-[0_10px_40px_rgba(21,35,71,0.06)] backdrop-blur-md transition hover:bg-white/60"

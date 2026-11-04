@@ -10,7 +10,6 @@ const robotSlugs = [
   "digit",
   "neo",
   "go2",
-  "stark-scooter",
   "apollo",
   "agibot-a2",
   "walker-s2",
@@ -21,12 +20,21 @@ const robotSlugs = [
   "xpeng-iron",
 ];
 
+const vehicleSlugs = [
+  "waymo-ipace",
+  "waymo-ojai",
+  "tesla-cybercab",
+  "zoox",
+  "stark-scooter",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${base}/physical`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/vehicles`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/launches`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
     { url: `${base}/bots`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/agents`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
@@ -43,5 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...robotRoutes];
+  const vehicleRoutes: MetadataRoute.Sitemap = vehicleSlugs.map((slug) => ({
+    url: `${base}/vehicles/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...robotRoutes, ...vehicleRoutes];
 }

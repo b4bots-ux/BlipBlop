@@ -9,6 +9,15 @@ const nextConfig = {
       "bostondynamics.com",
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/physical/stark-scooter",
+        destination: "/vehicles/stark-scooter",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

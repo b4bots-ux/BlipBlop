@@ -61,6 +61,9 @@ export default function RootLayout({
                 <a href="/physical" className="hover:text-white">
                   Robots
                 </a>
+                <a href="/vehicles" className="hover:text-white">
+                  Vehicles
+                </a>
                 <a href="/bots" className="hover:text-white">
                   Bots
                 </a>
@@ -92,6 +95,9 @@ export default function RootLayout({
                 <div className="flex flex-col gap-2 text-sm text-neutral-300 sm:flex-row sm:gap-6">
                   <a href="/physical" className="hover:text-white">
                     Robots
+                  </a>
+                  <a href="/vehicles" className="hover:text-white">
+                    Vehicles
                   </a>
                   <a href="/bots" className="hover:text-white">
                     Bots

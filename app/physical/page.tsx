@@ -5,12 +5,12 @@ import RobotImage from "./robot-image";
 export const metadata: Metadata = {
   title: "Physical Robots — Humanoid, Warehouse & Home Robots with Prices",
   description:
-    "Browse 16 physical robots — humanoids, robot dogs, warehouse systems, and home robots — with photos, prices, availability, and makers by country. Figure 03, Atlas, Unitree H2, NEO, Digit 5 and more, tracked in one index.",
+    "Browse 15 physical robots — humanoids, robot dogs, warehouse systems, and home robots — with photos, prices, availability, and makers by country. Figure 03, Atlas, Unitree H2, NEO, Digit 5 and more, tracked in one index.",
   alternates: { canonical: "/physical" },
   openGraph: {
     title: "Physical Robots — Humanoid, Warehouse & Home Robots with Prices",
     description:
-      "16 physical robots with photos, prices, and availability — humanoids, robot dogs, warehouse and home robots, counted in one index.",
+      "15 physical robots with photos, prices, and availability — humanoids, robot dogs, warehouse and home robots, counted in one index.",
     url: "https://www.b4bots.com/physical",
   },
 };
@@ -104,16 +104,6 @@ const featuredRobots: Robot[] = [
     description: "Entry-level quadruped platform with broad hobbyist and dev appeal.",
     image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/go2.jpeg?width=900&quality=80",
     href: "/physical/go2",
-  },
-  {
-    name: "Stark Scooter",
-    company: "Stark",
-    category: "Autonomous Vehicle",
-    status: "Pre-order",
-    price: "Contact",
-    description: "Autonomous delivery scooter with 360° vision, LiDAR, and deployable stabilizer arms, built for fleet operators on a Segway Max platform.",
-    image: "https://ywdzbsqovvzwzwczotzs.supabase.co/storage/v1/object/public/Robots/stark.jpeg?width=900&quality=80",
-    href: "/physical/stark-scooter",
   },
   {
     name: "Apollo 2",
@@ -333,7 +323,7 @@ export default function PhysicalPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Robots tracked</p>
-                <p className="mt-3 text-3xl font-semibold">16</p>
+                <p className="mt-3 text-3xl font-semibold">15</p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Humanoids</p>
@@ -345,7 +335,7 @@ export default function PhysicalPage() {
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm text-white/55">Manufacturers</p>
-                <p className="mt-3 text-3xl font-semibold">13</p>
+                <p className="mt-3 text-3xl font-semibold">12</p>
               </div>
             </div>
           </div>
