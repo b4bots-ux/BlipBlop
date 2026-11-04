@@ -179,7 +179,7 @@ export default async function LaunchesPage() {
           </div>
 
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
-            <h2 className="text-xl font-semibold">The B4Bots Brief</h2>
+            <h2 className="text-xl font-semibold">B for Brief</h2>
             <p className="mt-2 text-sm leading-6 text-white/65">
               One short email a month: the launches that mattered and how the
               Index moved. The feed above is the source — the Brief is the

@@ -2,9 +2,9 @@ import SignupForm from './signup-form'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'The B4Bots Brief — One Monthly Email on Robots, Agents & Bots',
+  title: 'B for Brief — One Monthly Email on Robots, Agents & Bots',
   description:
-    'The B4Bots Brief: one short email a month — the launches that mattered and how the Bot Population Index moved. Read the latest issue and subscribe free.',
+    'B for Brief: one short email a month — the launches that mattered and how the Bot Population Index moved. Read the latest issue and subscribe free.',
   alternates: { canonical: '/newsletter' },
 }
 
@@ -30,10 +30,15 @@ export default function NewsletterPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-12 min-h-screen bg-white text-gray-900">
       <div className="mb-10">
-        <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-100 px-4 py-1 text-sm text-gray-600 mb-4">
-          <span>✉️</span> Newsletter
+        <div className="flex items-center gap-3 mb-5">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-900 text-2xl font-bold text-white">
+            B
+          </div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-100 px-4 py-1 text-sm text-gray-600">
+            <span>✉️</span> Newsletter
+          </div>
         </div>
-        <h1 className="text-5xl font-semibold tracking-tight">The B4Bots Brief</h1>
+        <h1 className="text-5xl font-semibold tracking-tight">B for Brief</h1>
         <p className="mt-4 max-w-xl text-lg text-gray-600">
           A short monthly email on the bot population: how the Index moved,
           which robots shipped, which agents launched, and what got added to
@@ -69,6 +74,8 @@ export default function NewsletterPage() {
         </a>
         .
       </p>
+
+      <p className="mt-8 text-base font-semibold text-gray-900">— B, for Brief</p>
     </div>
   )
 }
