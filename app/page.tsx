@@ -378,7 +378,7 @@ export default function HomePage() {
             The rest of the population
           </h2>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             <a
               href="/vehicles"
               className="rounded-[1.6rem] border border-white/50 bg-white/40 p-6 shadow-[0_10px_40px_rgba(21,35,71,0.06)] backdrop-blur-md transition hover:bg-white/60"
@@ -392,6 +392,22 @@ export default function HomePage() {
               </p>
               <div className="mt-4 text-sm font-medium text-[#111827]">
                 Browse vehicles →
+              </div>
+            </a>
+
+            <a
+              href="/environment"
+              className="rounded-[1.6rem] border border-white/50 bg-white/40 p-6 shadow-[0_10px_40px_rgba(21,35,71,0.06)] backdrop-blur-md transition hover:bg-white/60"
+            >
+              <div className="text-lg font-semibold text-[#111827]">
+                Environmental robots
+              </div>
+              <p className="mt-2 text-sm leading-6 text-neutral-600">
+                The cleanup population — bots collecting trash from harbours,
+                rivers, and beaches around the clock.
+              </p>
+              <div className="mt-4 text-sm font-medium text-[#111827]">
+                Browse cleanup bots →
               </div>
             </a>
 
