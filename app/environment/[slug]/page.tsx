@@ -38,7 +38,7 @@ const allBots: EnvBot[] = [
       { label: "Radio range", value: "Up to 5 km (Plus)" },
       { label: "Deployments", value: "110+ · 34 countries" },
     ],
-    image: "/images/environment/wasteshark.jpg",
+    image: "/images/environment/wasteshark.svg",
     href: "/environment/wasteshark",
   },
   {
@@ -60,7 +60,7 @@ const allBots: EnvBot[] = [
       { label: "Control", value: "Remote or autonomous (GNSS)" },
       { label: "Extras", value: "Sonar bathymetry · water-quality probes" },
     ],
-    image: "/images/environment/jellyfishbot.jpg",
+    image: "/images/environment/jellyfishbot.svg",
     href: "/environment/jellyfishbot",
   },
   {
@@ -82,7 +82,7 @@ const allBots: EnvBot[] = [
       { label: "Control", value: "Remote · up to 150 m" },
       { label: "Tray", value: "100 L · tows up to 400 kg" },
     ],
-    image: "/images/environment/bebot.jpg",
+    image: "/images/environment/bebot.svg",
     href: "/environment/bebot",
   },
   {
@@ -104,7 +104,7 @@ const allBots: EnvBot[] = [
       { label: "Operator", value: "The Ocean Cleanup · non-profit" },
       { label: "Availability", value: "Not sold — deployed with partners" },
     ],
-    image: "/images/environment/interceptor.jpg",
+    image: "/images/environment/interceptor.svg",
     href: "/environment/interceptor",
   },
   {
@@ -126,7 +126,7 @@ const allBots: EnvBot[] = [
       { label: "Data", value: "Every item logged · live dashboard" },
       { label: "Model", value: "Robots-as-a-Service" },
     ],
-    image: "/images/environment/clearbot.jpg",
+    image: "/images/environment/clearbot.svg",
     href: "/environment/clearbot",
   },
 ];

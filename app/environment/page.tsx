@@ -37,7 +37,7 @@ const cleanupBots: EnvBot[] = [
     price: "From €37,450",
     description:
       "An all-electric aquadrone that skims floating trash, biomass and oil out of marinas, ports and canals — piloted from shore with a live camera feed, while the Pro tier cleans autonomously with LiDAR. Up to 500 kg of debris a day.",
-    image: "/images/environment/wasteshark.jpg",
+    image: "/images/environment/wasteshark.svg",
     href: "/environment/wasteshark",
   },
   {
@@ -49,7 +49,7 @@ const cleanupBots: EnvBot[] = [
     price: "Contact",
     description:
       "A compact electric harbour robot that trawls floating waste and oil into towed nets — remote-controlled or fully autonomous, covering about 1,000 m² an hour in marinas and industrial ports.",
-    image: "/images/environment/jellyfishbot.jpg",
+    image: "/images/environment/jellyfishbot.svg",
     href: "/environment/jellyfishbot",
   },
   {
@@ -61,7 +61,7 @@ const cleanupBots: EnvBot[] = [
     price: "Contact",
     description:
       "A tracked beach robot that sifts sand 10 cm deep for cigarette butts, bottle caps and microplastics — 100% electric, near-silent, and steered by remote from up to 150 m away.",
-    image: "/images/environment/bebot.jpg",
+    image: "/images/environment/bebot.svg",
     href: "/environment/bebot",
   },
   {
@@ -73,7 +73,7 @@ const cleanupBots: EnvBot[] = [
     price: "Not sold",
     description:
       "A stationary, solar-powered river system: a floating barrier funnels plastic onto a conveyor and into dumpsters, stopping it before it reaches the ocean. Deployed by a non-profit — never sold.",
-    image: "/images/environment/interceptor.jpg",
+    image: "/images/environment/interceptor.svg",
     href: "/environment/interceptor",
   },
   {
@@ -85,7 +85,7 @@ const cleanupBots: EnvBot[] = [
     price: "Contact",
     description:
       "Autonomous electric boats that hunt floating debris with AI vision and log every piece — type, material, GPS — to a live dashboard. Run as a service for ports and cities, not sold off a shelf.",
-    image: "/images/environment/clearbot.jpg",
+    image: "/images/environment/clearbot.svg",
     href: "/environment/clearbot",
   },
 ];
