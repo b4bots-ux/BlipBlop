@@ -28,6 +28,14 @@ const vehicleSlugs = [
   "stark-scooter",
 ];
 
+const environmentSlugs = [
+  "wasteshark",
+  "jellyfishbot",
+  "bebot",
+  "interceptor",
+  "clearbot",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
@@ -35,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${base}/physical`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/vehicles`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/environment`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/launches`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
     { url: `${base}/bots`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/agents`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
@@ -58,5 +67,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...robotRoutes, ...vehicleRoutes];
+  const environmentRoutes: MetadataRoute.Sitemap = environmentSlugs.map((slug) => ({
+    url: `${base}/environment/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...robotRoutes, ...vehicleRoutes, ...environmentRoutes];
 }

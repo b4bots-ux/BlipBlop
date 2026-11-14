@@ -64,6 +64,9 @@ export default function RootLayout({
                 <a href="/vehicles" className="hover:text-white">
                   Vehicles
                 </a>
+                <a href="/environment" className="hover:text-white">
+                  Environment
+                </a>
                 <a href="/bots" className="hover:text-white">
                   Bots
                 </a>
@@ -98,6 +101,9 @@ export default function RootLayout({
                   </a>
                   <a href="/vehicles" className="hover:text-white">
                     Vehicles
+                  </a>
+                  <a href="/environment" className="hover:text-white">
+                    Environment
                   </a>
                   <a href="/bots" className="hover:text-white">
                     Bots
