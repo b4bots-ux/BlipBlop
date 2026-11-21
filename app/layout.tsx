@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       "Robots, AI agents, and bots — counted. Physical robots with photos and prices, a weekly launch feed, and the Bot Population Index.",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "B4Bots — Bot Population Index",
     description:
       "Robots, AI agents, and bots — counted. Physical robots with photos and prices, a weekly launch feed, and the Bot Population Index.",
